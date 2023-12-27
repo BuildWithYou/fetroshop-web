@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  basePath: "/fetroshop-web",
+  output: "export",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
