@@ -3,8 +3,8 @@
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/16/solid";
 import { Button } from "flowbite-react";
 import Image from "next/image";
-import { title } from "process";
 import { useState } from "react";
+import { basePath } from "../../next.config";
 
 interface productType {
   id: number;
@@ -45,7 +45,7 @@ export default function ProuctHighLight(data: dataType) {
             <div>
               <Image
                 className="w-full"
-                src={item.image}
+                src={basePath + item.image}
                 width={200}
                 height={200}
                 alt={item.name}
