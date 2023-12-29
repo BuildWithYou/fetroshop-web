@@ -1,0 +1,233 @@
+"use client";
+
+import { Popover, Transition } from "@headlessui/react";
+import {
+  DevicePhoneMobileIcon,
+  MapPinIcon,
+  Squares2X2Icon,
+} from "@heroicons/react/16/solid";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { Avatar, Button, Dropdown, Navbar, TextInput } from "flowbite-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Fragment, useEffect, useState } from "react";
+import { basePath } from "../../../next.config";
+
+const solutions = [
+  {
+    name: "Insights",
+    description: "Measure actions your users take",
+    href: "##",
+  },
+  {
+    name: "Automations",
+    description: "Create your own targeted content",
+    href: "##",
+  },
+  {
+    name: "Reports",
+    description: "Keep track of your growth",
+    href: "##",
+  },
+];
+
+export default function Header() {
+  const [scrollY, setScrollY] = useState(0);
+  const [isLogin, setIsLogin] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <>
+      <div className="hidden lg:flex flex-col items-center w-full bg-secondary backdrop-blur py-1 px-3">
+        <div className="flex flex-row justify-between items-center w-full xl:w-3/4 text-light">
+          <div className="flex flex-row items-center">
+            <MapPinIcon className="w-4 mr-2" />
+            <p>
+              <span>Blitar</span>. Masuk untuk ubah lokasi.
+            </p>
+          </div>
+          <div className="flex flex-row items-center">
+            <Link href="" className="mx-4 hover:text-info">
+              Layanan Pelanggan
+            </Link>
+            <Link href="" className="mx-4 hover:text-info">
+              Jelajah Fetroshop
+            </Link>
+            <Link href="" className="flex flex-row ml-4 hover:text-info">
+              <DevicePhoneMobileIcon className="w-4 mr-1" />
+              Download Fetroshop App
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div
+        className={
+          "flex flex-col items-center font-bold text-sm" +
+          (scrollY > 50
+            ? "  bg-primary/80 dark:bg-primary/80 backdrop-blur text-light"
+            : " bg-primary/80 xl:bg-transparent border-b-2 xl:text-dark")
+        }
+      >
+        <Navbar fluid className="w-full 2xl:w-3/4 text-lg px-3 bg-transparent">
+          <Navbar.Brand
+            href="https://flowbite-react.com"
+            className="hidden lg:block"
+          >
+            <Image
+              src={basePath + "/images/logo.png"}
+              width={100}
+              height={100}
+              className="mr-3 h-6 sm:h-9"
+              alt="Flowbite React Logo"
+            />
+          </Navbar.Brand>
+          <div className="hidden lg:block">
+            <Popover>
+              {({ open }) => (
+                <>
+                  <Popover.Button
+                    className={`${
+                      open && "text-info"
+                    } group inline-flex items-center rounded-md px-3 py-2 text-base font-medium hover:text-info focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75`}
+                  >
+                    <Squares2X2Icon className="w-6 mr-2" />
+                    <span>Kategori</span>
+                  </Popover.Button>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-200"
+                    enterFrom="opacity-0 translate-y-1"
+                    enterTo="opacity-100 translate-y-0"
+                    leave="transition ease-in duration-150"
+                    leaveFrom="opacity-100 translate-y-0"
+                    leaveTo="opacity-0 translate-y-1"
+                  >
+                    <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-screen max-w-sm -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-3xl">
+                      <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5">
+                        <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
+                          {solutions.map((item) => (
+                            <a
+                              key={item.name}
+                              href={item.href}
+                              className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500/50"
+                            >
+                              <div className="ml-4">
+                                <p className="text-sm font-medium text-gray-900">
+                                  {item.name}
+                                </p>
+                                <p className="text-sm text-gray-500">
+                                  {item.description}
+                                </p>
+                              </div>
+                            </a>
+                          ))}
+                        </div>
+                        <div className="bg-gray-50 p-4">
+                          <a
+                            href="##"
+                            className="flow-root rounded-md px-2 py-2 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500/50"
+                          >
+                            <span className="flex items-center">
+                              <span className="text-sm font-medium text-gray-900">
+                                Documentation
+                              </span>
+                            </span>
+                            <span className="block text-sm text-gray-500">
+                              Start integrating products and tools
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </Popover.Panel>
+                  </Transition>
+                </>
+              )}
+            </Popover>
+          </div>
+          <div className="w-3/4 md:w-4/5 lg:w-1/3 2xl:w-1/3 flex rounded-md">
+            <input
+              placeholder="Cari Produk"
+              className="w-full rounded-l-md border-2 border-primary border-r-0 px-3"
+            />
+            <Button className="p-0 rounded-l-none bg-primary enabled:hover:bg-info">
+              <MagnifyingGlassIcon className="w-6" />
+            </Button>
+          </div>
+          <div className="hidden lg:flex justify-between items-center lg:w-1/3">
+            <Link href="#" className="hover:text-info">
+              Brand
+            </Link>
+            <Link href="#" className="hover:text-info">
+              Promo
+            </Link>
+            <Link href="#" className="hover:text-info">
+              <ShoppingCartIcon className="w-6" />
+            </Link>
+            <div className="border-l-2 h-8" />
+            {isLogin ? (
+              <Dropdown
+                arrowIcon={false}
+                inline
+                label={
+                  <Avatar
+                    alt="User settings"
+                    img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                    rounded
+                  />
+                }
+              >
+                <Dropdown.Header>
+                  <span className="block text-sm">Bonnie Green</span>
+                  <span className="block truncate text-sm font-medium">
+                    name@flowbite.com
+                  </span>
+                </Dropdown.Header>
+                <Dropdown.Item>Dashboard</Dropdown.Item>
+                <Dropdown.Item>Settings</Dropdown.Item>
+                <Dropdown.Item>Earnings</Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item>Sign out</Dropdown.Item>
+              </Dropdown>
+            ) : (
+              <>
+                <Link href="#" className="hover:text-info">
+                  Daftar
+                </Link>
+                <Link href="#" className="hover:text-info">
+                  Masuk
+                </Link>
+              </>
+            )}
+            {/* <Navbar.Toggle /> */}
+          </div>
+          <button className="lg:hidden">
+            <ShoppingCartIcon className="w-6 mr-2" />
+          </button>
+          <button className="lg:hidden">
+            <Squares2X2Icon className="w-6 mr-2" />
+          </button>
+        </Navbar>
+        <div className="w-full flex flex-row lg:hidden items-center mb-2 px-3">
+          <MapPinIcon className="w-4 mr-2" />
+          <p>
+            <span>Blitar</span>. Masuk untuk ubah lokasi.
+          </p>
+        </div>
+      </div>
+    </>
+  );
+}
