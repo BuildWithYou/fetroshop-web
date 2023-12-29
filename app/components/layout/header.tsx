@@ -1,19 +1,29 @@
 "use client";
 
-import { Popover, Transition } from "@headlessui/react";
+import { Dialog, Popover, Transition } from "@headlessui/react";
 import {
   DevicePhoneMobileIcon,
   MapPinIcon,
   Squares2X2Icon,
+  XMarkIcon,
 } from "@heroicons/react/16/solid";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
-import { Avatar, Button, Dropdown, Navbar, TextInput } from "flowbite-react";
+import {
+  Avatar,
+  Button,
+  Dropdown,
+  ListGroup,
+  Navbar,
+  Sidebar,
+  TextInput,
+} from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Fragment, useEffect, useState } from "react";
 import { basePath } from "../../../next.config";
+import ThemeToggle from "./themeToggle";
 
 const solutions = [
   {
@@ -36,6 +46,7 @@ const solutions = [
 export default function Header() {
   const [scrollY, setScrollY] = useState(0);
   const [isLogin, setIsLogin] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,7 +63,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="hidden lg:flex flex-col items-center w-full bg-secondary backdrop-blur py-1 px-3">
+      <div className="hidden lg:flex flex-col items-center w-full bg-secondary dark:bg-primaryDark backdrop-blur py-1 px-3">
         <div className="flex flex-row justify-between items-center w-full xl:w-3/4 text-light">
           <div className="flex flex-row items-center">
             <MapPinIcon className="w-4 mr-2" />
@@ -78,11 +89,19 @@ export default function Header() {
         className={
           "flex flex-col items-center font-bold text-sm" +
           (scrollY > 50
-            ? "  bg-primary/80 dark:bg-primary/80 backdrop-blur text-light"
-            : " bg-primary/80 xl:bg-transparent border-b-2 xl:text-dark")
+            ? "  bg-primary/80 dark:bg-primary backdrop-blur text-light"
+            : " bg-primary/80 xl:bg-transparent xl:dark:bg-primaryDark border-b-2 border-b-primary xl:text-dark dark:text-light")
         }
       >
-        <Navbar fluid className="w-full 2xl:w-3/4 text-lg px-3 bg-transparent">
+        <Navbar
+          fluid
+          className={
+            "w-full 2xl:w-3/4 text-lg px-3" +
+            (scrollY > 50
+              ? " bg-primary dark:bg-primary"
+              : "bg-primary/80 xl:bg-transparent xl:dark:bg-primaryDark")
+          }
+        >
           <Navbar.Brand
             href="https://flowbite-react.com"
             className="hidden lg:block"
@@ -163,7 +182,7 @@ export default function Header() {
               placeholder="Cari Produk"
               className="w-full rounded-l-md border-2 border-primary border-r-0 px-3"
             />
-            <Button className="p-0 rounded-l-none bg-primary enabled:hover:bg-info">
+            <Button className="p-0 rounded-l-none bg-primary dark:bg-primary enabled:hover:bg-info">
               <MagnifyingGlassIcon className="w-6" />
             </Button>
           </div>
@@ -210,6 +229,7 @@ export default function Header() {
                 <Link href="#" className="hover:text-info">
                   Masuk
                 </Link>
+                <ThemeToggle />
               </>
             )}
             {/* <Navbar.Toggle /> */}
@@ -217,9 +237,116 @@ export default function Header() {
           <button className="lg:hidden">
             <ShoppingCartIcon className="w-6 mr-2" />
           </button>
-          <button className="lg:hidden">
+          <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>
             <Squares2X2Icon className="w-6 mr-2" />
           </button>
+          <Dialog
+            open={menuOpen}
+            onClose={() => setMenuOpen(!menuOpen)}
+            className="relative z-50"
+          >
+            <div className="fixed inset-0 bg-black" aria-hidden="true" />
+            <div className="fixed inset-0 flex w-screen h-screen items-center justify-center">
+              <Dialog.Panel className="w-screen h-screen rounded text-dark dark:text-light bg-white dark:bg-dark backdrop-blur py-5 px-6">
+                <XMarkIcon
+                  className="w-7 absolute top-5 right-6 cursor-pointer"
+                  onClick={() => setMenuOpen(!menuOpen)}
+                />
+                <Dialog.Title className="font-semibold">Menu</Dialog.Title>
+                <div className="flex flex-col my-5">
+                  {isLogin ? (
+                    <Dropdown
+                      arrowIcon={false}
+                      inline
+                      label={
+                        <Avatar
+                          alt="User settings"
+                          img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                          rounded
+                        />
+                      }
+                    >
+                      <Dropdown.Header>
+                        <span className="block text-sm">Bonnie Green</span>
+                        <span className="block truncate text-sm font-medium">
+                          name@flowbite.com
+                        </span>
+                      </Dropdown.Header>
+                      <Dropdown.Item>Dashboard</Dropdown.Item>
+                      <Dropdown.Item>Settings</Dropdown.Item>
+                      <Dropdown.Item>Earnings</Dropdown.Item>
+                      <Dropdown.Divider />
+                      <Dropdown.Item>Sign out</Dropdown.Item>
+                    </Dropdown>
+                  ) : (
+                    <div className="grid grid-cols-2 gap-4">
+                      <Button className="bg-secondary dark:bg-secondaryDark">
+                        Daftar
+                      </Button>
+                      <Button className="bg-primary dark:bg-primaryDark">
+                        Masuk
+                      </Button>
+                    </div>
+                  )}
+                </div>
+                <hr className=" border-primary dark:border-primaryDark" />
+                <div className="flex flex-col my-5">
+                  <h2 className="mb-2 font-semibold">Akun Saya</h2>
+                  <ul className="w-full">
+                    <li className="mt-2">
+                      <Link href="#">Profile</Link>
+                    </li>
+                    <li className="mt-2">
+                      <Link href="#">Settings</Link>
+                    </li>
+                    <li className="mt-2">
+                      <Link href="#">Messages</Link>
+                    </li>
+                    <li className="mt-2">
+                      <Link href="#">Log Out</Link>
+                    </li>
+                  </ul>
+                </div>
+                <hr className=" border-primary dark:border-primaryDark" />
+                <div className="flex flex-col my-5">
+                  <h2 className="mb-2 font-semibold">Layanan Pelanggan</h2>
+                  <ul className="w-full">
+                    <li className="mt-2">
+                      <Link href="#">Pertanyaan Umum</Link>
+                    </li>
+                    <li className="mt-2">
+                      <Link href="#">Cara Belanja</Link>
+                    </li>
+                    <li className="mt-2">
+                      <Link href="#">Gratis Ongkir</Link>
+                    </li>
+                  </ul>
+                </div>
+                <hr className=" border-primary dark:border-primaryDark" />
+                <div className="flex flex-col my-5">
+                  <h2 className="mb-2 font-semibold">Jelajahi Fetroshop</h2>
+                  <ul className="w-full">
+                    <li className="mt-2">
+                      <Link href="#">Tentang Fetroshop</Link>
+                    </li>
+                    <li className="mt-2">
+                      <Link href="#">Syarat & Ketentuan</Link>
+                    </li>
+                    <li className="mt-2">
+                      <Link href="#">Kebijakan Privasi</Link>
+                    </li>
+                  </ul>
+                </div>
+                <hr className=" border-primary dark:border-primaryDark" />
+                <div className="flex flex-col my-5">
+                  <h2 className="mb-2 font-semibold">Theme</h2>
+                  <div className="cursor-pointer mt-2">
+                    <ThemeToggle />
+                  </div>
+                </div>
+              </Dialog.Panel>
+            </div>
+          </Dialog>
         </Navbar>
         <div className="w-full flex flex-row lg:hidden items-center mb-2 px-3">
           <MapPinIcon className="w-4 mr-2" />

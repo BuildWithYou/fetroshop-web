@@ -3,28 +3,31 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <>
-      <hr className="my-6 border-light sm:mx-auto dark:border-secondary lg:my-8" />
-      <footer className="mx-auto w-full h-64 max-w-screen-xl p-4 py-6 lg:py-8">
-        <div className="md:flex md:justify-between">
-          <div className="mb-6 md:mb-0">
-            <span className="text-sm text-light sm:text-center dark:text-primary">
+      <hr className="mt-6 border-primary sm:mx-auto dark:border-primaryDark lg:mt-8" />
+      <div className="w-full flex flex-col sm:flex-row justify-center bg-slate-500/30 backdrop-blur h-72 pt-6 lg:pt-8 px-4">
+        <div className="w-full lg:w-3/4 xl:w-2/3 flex flex-col sm:flex-row justify-between">
+          <div className="w-full xl:w-2/3 mb-10 md:mb-0">
+            <span className="text-sm text-light dark:text-primary font-semibold sm:text-center">
               © 2023{" "}
-              <Link href="https://flowbite.com/" className="hover:underline">
+              <Link
+                href="/"
+                className="hover:underline hover:text-primary hover:dark:text-primary "
+              >
                 Fetroshop
               </Link>
               .
             </span>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <div className="w-full xl:w-1/3 grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-blue-600 uppercase dark:text-light">
+              <h2 className="mb-6 text-sm font-semibold text-light uppercase dark:text-primary">
                 Elsewhere
               </h2>
-              <ul className="text-light dark:text-primary font-medium">
+              <ul className="text-secondary dark:text-primaryDark font-medium">
                 <li className="mb-4">
                   <Link
                     href="https://github.com/asrozy98"
-                    className="hover:underline"
+                    className="hover:underline hover:text-primary hover:dark:text-primary"
                   >
                     Github
                   </Link>
@@ -32,7 +35,7 @@ export default function Footer() {
                 <li className="mb-4">
                   <Link
                     href="https://facebook.com/asrozy98"
-                    className="hover:underline"
+                    className="hover:underline hover:text-primary hover:dark:text-primary"
                   >
                     Facebook
                   </Link>
@@ -40,7 +43,7 @@ export default function Footer() {
                 <li className="mb-4">
                   <Link
                     href="https://instagram.com/asrozy98"
-                    className="hover:underline"
+                    className="hover:underline hover:text-primary hover:dark:text-primary"
                   >
                     Instagram
                   </Link>
@@ -48,7 +51,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="https://www.linkedin.com/in/mfaisalasrozy"
-                    className="hover:underline"
+                    className="hover:underline hover:text-primary hover:dark:text-primary"
                   >
                     LinkedIn
                   </Link>
@@ -56,14 +59,14 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-blue-600 uppercase dark:text-light">
+              <h2 className="mb-6 text-sm font-semibold text-light uppercase dark:text-primary">
                 Email
               </h2>
-              <ul className="text-light dark:text-primary font-medium">
+              <ul className="text-secondary dark:text-primaryDark font-medium">
                 <li className="mb-4">
                   <Link
                     href="mailto:fetroshop@gmail.com"
-                    className="hover:underline"
+                    className="hover:underline hover:text-primary hover:dark:text-primary"
                   >
                     fetroshop@gmail.com
                   </Link>
@@ -72,7 +75,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </footer>
+      </div>
     </>
   );
 }

@@ -37,21 +37,21 @@ export default function ProuctHighLight(data: dataType) {
         {product.map((item) => (
           <a
             href="#"
-            className="group rounded-lg border border-primary px-5 py-4 transition-colors bg-light hover:border-primary hover:bg-light/30 hover:dark:border-light hover:dark:bg-primary"
+            className="group rounded-lg border border-primary px-5 py-4 transition-colors bg-light dark:bg-primaryDark/15 hover:border-primary hover:bg-light/30 hover:dark:border-light hover:dark:bg-primaryDark/50"
             target="_blank"
             rel="noopener noreferrer"
             key={item.id}
           >
             <div>
               <Image
-                className="w-full"
+                className="w-full rounded-md"
                 src={basePath + item.image}
                 width={200}
                 height={200}
                 alt={item.name}
               />
             </div>
-            <h2 className="my-3 text-xl font-semibold text-dark hover:text-light">
+            <h2 className="my-3 text-xl font-semibold text-dark dark:text-light hover:text-light">
               {item.name}
             </h2>
             <div>
@@ -60,7 +60,7 @@ export default function ProuctHighLight(data: dataType) {
               </p>
               <p className="text-md text-danger font-bold">{item.price}</p>
             </div>
-            <Button className="w-full z-10 bg-primary enabled:hover:bg-light enabled:hover:text-primary enabled:hover:border-primary mt-2">
+            <Button className="w-full z-10 bg-primary dark:bg-primaryDark enabled:hover:bg-light dark:enabled:hover:bg-primary enabled:hover:text-primary dark:enabled:hover:text-light enabled:hover:border-primary mt-2">
               Beli
             </Button>
           </a>
@@ -68,14 +68,14 @@ export default function ProuctHighLight(data: dataType) {
       </div>
       {showAll ? (
         <Button
-          className="w-full bg-transparent enabled:hover:bg-transparent enabled:hover:text-primary focus:ring-transparent 2xl:my-2"
+          className="w-full bg-transparent dark:bg-transparent enabled:hover:bg-transparent dark:enabled:hover:bg-transparent enabled:hover:text-primaryDark dark:enabled:hover:text-primary focus:ring-transparent dark:focus:ring-transparent 2xl:my-2"
           onClick={handleShow}
         >
           Lihat Lebih Sedikit <ChevronUpIcon className="w-6" />
         </Button>
       ) : (
         <Button
-          className="w-full bg-transparent enabled:hover:bg-transparent enabled:hover:text-primary focus:ring-transparent 2xl:my-2"
+          className="w-full bg-transparent dark:bg-transparent enabled:hover:bg-transparent dark:enabled:hover:bg-transparent enabled:hover:text-primaryDark dark:enabled:hover:text-primary focus:ring-transparent dark:focus:ring-transparent 2xl:my-2"
           onClick={handleShow}
         >
           Lihat Selengkapnya <ChevronDownIcon className="w-6" />

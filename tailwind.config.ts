@@ -7,6 +7,7 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     'node_modules/flowbite-react/lib/esm/**/*.js',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       backgroundImage: {
@@ -21,6 +22,12 @@ const config: Config = {
         danger: '#b91c1c',
         warning: '#ca8a04',
         info: '#22d3ee',
+        primaryDark: '#1e3a8a',
+        secondaryDark: '#64748b',
+        successDark: '#14532d',
+        dangerDark: '#7f1d1d',
+        warningDark: '#713f12',
+        infoDark: '#1e3a8a',
         light: '#f8fafc',
         dark: '#020617',
       }

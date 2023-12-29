@@ -34,7 +34,7 @@ export default function SliderCategory() {
       >
         <SwiperSlide>
           <Badge
-            className="bg-light hover:bg-primary hover:text-light cursor-pointer"
+            className="bg-light dark:bg-primaryDark dark:text-light hover:bg-primary hover:text-light cursor-pointer"
             icon={HiClock}
           >
             Category
@@ -42,7 +42,7 @@ export default function SliderCategory() {
         </SwiperSlide>
         <SwiperSlide>
           <Badge
-            className="bg-light hover:bg-primary hover:text-light cursor-pointer"
+            className="bg-light dark:bg-primaryDark dark:text-light hover:bg-primary hover:text-light cursor-pointer"
             icon={HiClock}
           >
             Category
@@ -50,7 +50,7 @@ export default function SliderCategory() {
         </SwiperSlide>
         <SwiperSlide>
           <Badge
-            className="bg-light hover:bg-primary hover:text-light cursor-pointer"
+            className="bg-light dark:bg-primaryDark dark:text-light hover:bg-primary hover:text-light cursor-pointer"
             icon={HiClock}
           >
             Category
@@ -58,7 +58,7 @@ export default function SliderCategory() {
         </SwiperSlide>
         <SwiperSlide>
           <Badge
-            className="bg-light hover:bg-primary hover:text-light cursor-pointer"
+            className="bg-light dark:bg-primaryDark dark:text-light hover:bg-primary hover:text-light cursor-pointer"
             icon={HiClock}
           >
             Category
@@ -66,7 +66,7 @@ export default function SliderCategory() {
         </SwiperSlide>
         <SwiperSlide>
           <Badge
-            className="bg-light hover:bg-primary hover:text-light cursor-pointer"
+            className="bg-light dark:bg-primaryDark dark:text-light hover:bg-primary hover:text-light cursor-pointer"
             icon={HiClock}
           >
             Category
@@ -74,7 +74,7 @@ export default function SliderCategory() {
         </SwiperSlide>
         <SwiperSlide>
           <Badge
-            className="bg-light hover:bg-primary hover:text-light cursor-pointer"
+            className="bg-light dark:bg-primaryDark dark:text-light hover:bg-primary hover:text-light cursor-pointer"
             icon={HiClock}
           >
             Category
@@ -82,7 +82,7 @@ export default function SliderCategory() {
         </SwiperSlide>
         <SwiperSlide>
           <Badge
-            className="bg-light hover:bg-primary hover:text-light cursor-pointer"
+            className="bg-light dark:bg-primaryDark dark:text-light hover:bg-primary hover:text-light cursor-pointer"
             icon={HiClock}
           >
             Category
@@ -90,7 +90,7 @@ export default function SliderCategory() {
         </SwiperSlide>
         <SwiperSlide>
           <Badge
-            className="bg-light hover:bg-primary hover:text-light cursor-pointer"
+            className="bg-light dark:bg-primaryDark dark:text-light hover:bg-primary hover:text-light cursor-pointer"
             icon={HiClock}
           >
             Category
@@ -98,7 +98,7 @@ export default function SliderCategory() {
         </SwiperSlide>
         <SwiperSlide>
           <Badge
-            className="bg-light hover:bg-primary hover:text-light cursor-pointer"
+            className="bg-light dark:bg-primaryDark dark:text-light hover:bg-primary hover:text-light cursor-pointer"
             icon={HiClock}
           >
             Category
@@ -106,7 +106,7 @@ export default function SliderCategory() {
         </SwiperSlide>
         <SwiperSlide>
           <Badge
-            className="bg-light hover:bg-primary hover:text-light cursor-pointer"
+            className="bg-light dark:bg-primaryDark dark:text-light hover:bg-primary hover:text-light cursor-pointer"
             icon={HiClock}
           >
             Category
@@ -114,7 +114,7 @@ export default function SliderCategory() {
         </SwiperSlide>
         <SwiperSlide>
           <Badge
-            className="bg-light hover:bg-primary hover:text-light cursor-pointer"
+            className="bg-light dark:bg-primaryDark dark:text-light hover:bg-primary hover:text-light cursor-pointer"
             icon={HiClock}
           >
             Category
@@ -122,7 +122,7 @@ export default function SliderCategory() {
         </SwiperSlide>
         <SwiperSlide>
           <Badge
-            className="bg-light hover:bg-primary hover:text-light cursor-pointer"
+            className="bg-light dark:bg-primaryDark dark:text-light hover:bg-primary hover:text-light cursor-pointer"
             icon={HiClock}
           >
             Category

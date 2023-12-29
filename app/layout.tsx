@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={(inter.className, "bg-light dark:bg-primary")}>
+      <body className={(inter.className, " bg-light dark:bg-dark")}>
         <div className="fixed z-50 w-full">
           <Headers />
         </div>

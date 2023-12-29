@@ -1,9 +1,9 @@
 import Image from "next/image";
-import "swiper/css";
 import SliderCategory from "./components/sliderCategory";
 import ProuctHighLight from "./components/productHighlight";
 import SliderBanner from "./components/sliderBanner";
 import { basePath } from "../next.config";
+import "swiper/css";
 
 const product = [
   {
@@ -87,7 +87,7 @@ const product = [
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between px-3 pt-24 2xl:p-28">
+    <main className="flex min-h-screen flex-col items-center justify-between px-3 pt-28 2xl:p-28">
       <div className="max-w-7xl w-full items-center justify-between hidden lg:block">
         <SliderBanner rows={2} />
       </div>
