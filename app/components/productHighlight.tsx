@@ -5,6 +5,7 @@ import { Button } from "flowbite-react";
 import Image from "next/image";
 import { useState } from "react";
 import { basePath } from "../../next.config";
+import Link from "next/link";
 
 interface productType {
   id: number;
@@ -35,35 +36,34 @@ export default function ProuctHighLight(data: dataType) {
       <p className="text-2xl my-2">{data.title}</p>
       <div className="mb-4 grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-6 lg:max-w-7xl lg:w-full lg:mb-0 lg:text-left">
         {product.map((item) => (
-          <a
-            href="#"
+          <div
             className="group rounded-lg border border-primary px-5 py-4 transition-colors bg-light dark:bg-primaryDark/15 hover:border-primary hover:bg-light/30 hover:dark:border-light hover:dark:bg-primaryDark/50"
-            target="_blank"
-            rel="noopener noreferrer"
             key={item.id}
           >
-            <div>
-              <Image
-                className="w-full rounded-md"
-                src={basePath + item.image}
-                width={200}
-                height={200}
-                alt={item.name}
-              />
-            </div>
-            <h2 className="my-3 text-xl font-semibold text-dark dark:text-light hover:text-light">
-              {item.name}
-            </h2>
-            <div>
-              <p className="text-sm text-secondary hover:text-light font-bold line-through">
-                {item.normalPrice}
-              </p>
-              <p className="text-md text-danger font-bold">{item.price}</p>
-            </div>
+            <Link href="#">
+              <div>
+                <Image
+                  className="w-full rounded-md"
+                  src={basePath + item.image}
+                  width={200}
+                  height={200}
+                  alt={item.name}
+                />
+              </div>
+              <h2 className="my-3 text-xl font-semibold text-dark dark:text-light hover:text-light">
+                {item.name}
+              </h2>
+              <div>
+                <p className="text-sm text-secondary hover:text-light font-bold line-through">
+                  {item.normalPrice}
+                </p>
+                <p className="text-md text-danger font-bold">{item.price}</p>
+              </div>
+            </Link>
             <Button className="w-full z-10 bg-primary dark:bg-primaryDark enabled:hover:bg-light dark:enabled:hover:bg-primary enabled:hover:text-primary dark:enabled:hover:text-light enabled:hover:border-primary mt-2">
               Beli
             </Button>
-          </a>
+          </div>
         ))}
       </div>
       {showAll ? (

@@ -89,8 +89,8 @@ export default function Header() {
         className={
           "flex flex-col items-center font-bold text-sm" +
           (scrollY > 50
-            ? "  bg-primary/80 dark:bg-primary backdrop-blur text-light"
-            : " bg-primary/80 xl:bg-transparent xl:dark:bg-primaryDark border-b-2 border-b-primary xl:text-dark dark:text-light")
+            ? "  bg-primary dark:bg-primary backdrop-blur text-light"
+            : " bg-primary/80 dark:bg-primaryDark lg:bg-transparent lg:dark:bg-primaryDark border-b-2 border-b-primary lg:text-dark dark:text-light")
         }
       >
         <Navbar
@@ -98,8 +98,8 @@ export default function Header() {
           className={
             "w-full 2xl:w-3/4 text-lg px-3" +
             (scrollY > 50
-              ? " bg-primary dark:bg-primary"
-              : "bg-primary/80 xl:bg-transparent xl:dark:bg-primaryDark")
+              ? " bg-primary/80 dark:bg-primary"
+              : " bg-primary/80 dark:bg-primaryDark lg:bg-transparent lg:dark:bg-primaryDark")
           }
         >
           <Navbar.Brand
@@ -197,6 +197,7 @@ export default function Header() {
               <ShoppingCartIcon className="w-6" />
             </Link>
             <div className="border-l-2 h-8" />
+            <ThemeToggle />
             {isLogin ? (
               <Dropdown
                 arrowIcon={false}
@@ -215,9 +216,10 @@ export default function Header() {
                     name@flowbite.com
                   </span>
                 </Dropdown.Header>
-                <Dropdown.Item>Dashboard</Dropdown.Item>
+                <Dropdown.Item>Profile</Dropdown.Item>
+                <Dropdown.Item>Daftar Transaksi</Dropdown.Item>
+                <Dropdown.Item>Messages</Dropdown.Item>
                 <Dropdown.Item>Settings</Dropdown.Item>
-                <Dropdown.Item>Earnings</Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item>Sign out</Dropdown.Item>
               </Dropdown>
@@ -229,10 +231,8 @@ export default function Header() {
                 <Link href="#" className="hover:text-info">
                   Masuk
                 </Link>
-                <ThemeToggle />
               </>
             )}
-            {/* <Navbar.Toggle /> */}
           </div>
           <button className="lg:hidden">
             <ShoppingCartIcon className="w-6 mr-2" />
@@ -253,31 +253,29 @@ export default function Header() {
                   onClick={() => setMenuOpen(!menuOpen)}
                 />
                 <Dialog.Title className="font-semibold">Menu</Dialog.Title>
+                <hr className=" border-primary dark:border-primaryDark mt-5" />
                 <div className="flex flex-col my-5">
                   {isLogin ? (
-                    <Dropdown
-                      arrowIcon={false}
-                      inline
-                      label={
-                        <Avatar
-                          alt="User settings"
-                          img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                          rounded
-                        />
-                      }
-                    >
-                      <Dropdown.Header>
-                        <span className="block text-sm">Bonnie Green</span>
-                        <span className="block truncate text-sm font-medium">
-                          name@flowbite.com
-                        </span>
-                      </Dropdown.Header>
-                      <Dropdown.Item>Dashboard</Dropdown.Item>
-                      <Dropdown.Item>Settings</Dropdown.Item>
-                      <Dropdown.Item>Earnings</Dropdown.Item>
-                      <Dropdown.Divider />
-                      <Dropdown.Item>Sign out</Dropdown.Item>
-                    </Dropdown>
+                    <>
+                      <h2 className="mb-2 font-semibold">Akun Saya</h2>
+                      <ul className="w-full">
+                        <li className="mt-2">
+                          <Link href="#">Profile</Link>
+                        </li>
+                        <li className="mt-2">
+                          <Link href="#">Daftar Transaksi</Link>
+                        </li>
+                        <li className="mt-2">
+                          <Link href="#">Messages</Link>
+                        </li>
+                        <li className="mt-2">
+                          <Link href="#">Settings</Link>
+                        </li>
+                        <li className="mt-2">
+                          <Link href="#">Log Out</Link>
+                        </li>
+                      </ul>
+                    </>
                   ) : (
                     <div className="grid grid-cols-2 gap-4">
                       <Button className="bg-secondary dark:bg-secondaryDark">
@@ -291,19 +289,16 @@ export default function Header() {
                 </div>
                 <hr className=" border-primary dark:border-primaryDark" />
                 <div className="flex flex-col my-5">
-                  <h2 className="mb-2 font-semibold">Akun Saya</h2>
+                  <h2 className="mb-2 font-semibold">Menu Utama</h2>
                   <ul className="w-full">
                     <li className="mt-2">
-                      <Link href="#">Profile</Link>
+                      <Link href="#">Semua Kategori</Link>
                     </li>
                     <li className="mt-2">
-                      <Link href="#">Settings</Link>
+                      <Link href="#">Promo</Link>
                     </li>
                     <li className="mt-2">
-                      <Link href="#">Messages</Link>
-                    </li>
-                    <li className="mt-2">
-                      <Link href="#">Log Out</Link>
+                      <Link href="#">Brand</Link>
                     </li>
                   </ul>
                 </div>
