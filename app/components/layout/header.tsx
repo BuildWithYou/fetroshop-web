@@ -9,21 +9,14 @@ import {
 } from "@heroicons/react/16/solid";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
-import {
-  Avatar,
-  Button,
-  Dropdown,
-  ListGroup,
-  Navbar,
-  Sidebar,
-  TextInput,
-} from "flowbite-react";
+import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Fragment, useEffect, useState } from "react";
 import { basePath } from "../../../next.config";
 import ThemeToggle from "./themeToggle";
+import Button from "../global/Button";
 
 const solutions = [
   {
@@ -182,7 +175,7 @@ export default function Header() {
               placeholder="Cari Produk"
               className="w-full rounded-l-md border-2 border-primary border-r-0 px-3"
             />
-            <Button className="p-0 rounded-l-none bg-primary dark:bg-primary enabled:hover:bg-info">
+            <Button className="rounded-l-none">
               <MagnifyingGlassIcon className="w-6" />
             </Button>
           </div>
@@ -278,12 +271,8 @@ export default function Header() {
                     </>
                   ) : (
                     <div className="grid grid-cols-2 gap-4">
-                      <Button className="bg-secondary dark:bg-secondaryDark">
-                        Daftar
-                      </Button>
-                      <Button className="bg-primary dark:bg-primaryDark">
-                        Masuk
-                      </Button>
+                      <Button variant="secondary">Daftar</Button>
+                      <Button>Masuk</Button>
                     </div>
                   )}
                 </div>
