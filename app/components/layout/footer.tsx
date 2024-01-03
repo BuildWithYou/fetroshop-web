@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="w-full flex flex-col sm:flex-row justify-center bg-slate-500/30 backdrop-blur h-72 pt-6 lg:pt-8 px-4">
         <div className="w-full lg:w-3/4 xl:w-2/3 flex flex-col sm:flex-row justify-between">
           <div className="w-full xl:w-2/3 mb-10 md:mb-0">
-            <span className="text-sm text-light dark:text-primary font-semibold sm:text-center">
+            <span className="text-sm text-dark dark:text-primary font-semibold sm:text-center">
               © 2023{" "}
               <Link
                 href="/"
@@ -20,7 +20,7 @@ export default function Footer() {
           </div>
           <div className="w-full xl:w-1/3 grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-light uppercase dark:text-primary">
+              <h2 className="mb-6 text-sm font-semibold text-dark uppercase dark:text-primary">
                 Elsewhere
               </h2>
               <ul className="text-secondary dark:text-primaryDark font-medium">
@@ -59,7 +59,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-light uppercase dark:text-primary">
+              <h2 className="mb-6 text-sm font-semibold text-dark uppercase dark:text-primary">
                 Email
               </h2>
               <ul className="text-secondary dark:text-primaryDark font-medium">
