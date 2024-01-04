@@ -41,7 +41,7 @@ export default function ProuctHighLight(data: dataType) {
         <Button
           className="w-full 2xl:my-2"
           onClick={handleShow}
-          variant="labelPrimary"
+          variant="inlinePrimary"
         >
           Lihat Lebih Sedikit <ChevronUpIcon className="w-6" />
         </Button>
@@ -49,7 +49,7 @@ export default function ProuctHighLight(data: dataType) {
         <Button
           className="w-full 2xl:my-2"
           onClick={handleShow}
-          variant="labelPrimary"
+          variant="inlinePrimary"
         >
           Lihat Selengkapnya <ChevronDownIcon className="w-6" />
         </Button>

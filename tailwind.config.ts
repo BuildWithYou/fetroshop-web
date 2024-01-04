@@ -5,7 +5,6 @@ const config: Config = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-    'node_modules/flowbite-react/lib/esm/**/*.js',
   ],
   darkMode: 'class',
   theme: {
@@ -23,18 +22,16 @@ const config: Config = {
         warning: '#ca8a04',
         info: '#22d3ee',
         primaryDark: '#1e3a8a',
-        secondaryDark: '#64748b',
+        secondaryDark: '#334155',
         successDark: '#14532d',
         dangerDark: '#7f1d1d',
         warningDark: '#713f12',
-        infoDark: '#1e3a8a',
+        infoDark: '#0e7490',
         light: '#f8fafc',
         dark: '#020617',
       }
     },
   },
-  plugins: [
-    require('flowbite/plugin')
-  ],
+  plugins: [],
 }
 export default config

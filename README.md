@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, if you run on local dev, you must comment or remove `output: "export"` inside the next.config.js file. Now run the development server:
 
 ```bash
 npm run dev

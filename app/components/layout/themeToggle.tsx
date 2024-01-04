@@ -9,7 +9,12 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
-    if (theme === "dark") setDarkMode(true);
+    if (
+      theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    )
+      setDarkMode(true);
   }, []);
 
   useEffect(() => {

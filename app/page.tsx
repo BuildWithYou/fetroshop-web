@@ -5,6 +5,7 @@ import SliderBanner from "./components/global/SliderBanner";
 import { basePath } from "../next.config";
 import "swiper/css";
 import Link from "next/link";
+import Button from "./components/global/Button";
 
 const product = [
   {

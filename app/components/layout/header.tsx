@@ -1,6 +1,6 @@
 "use client";
 
-import { Dialog, Popover, Transition } from "@headlessui/react";
+import { Dialog, Menu, Popover, Transition } from "@headlessui/react";
 import {
   DevicePhoneMobileIcon,
   MapPinIcon,
@@ -9,7 +9,6 @@ import {
 } from "@heroicons/react/16/solid";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
-import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,6 +16,7 @@ import { Fragment, useEffect, useState } from "react";
 import { basePath } from "../../../next.config";
 import ThemeToggle from "./themeToggle";
 import Button from "../global/Button";
+import cn from "@/app/utils/cn";
 
 const solutions = [
   {
@@ -57,7 +57,7 @@ export default function Header() {
   return (
     <>
       <div className="hidden lg:flex flex-col items-center w-full bg-secondary dark:bg-primaryDark backdrop-blur py-1 px-3">
-        <div className="flex flex-row justify-between items-center w-full xl:w-3/4 text-light">
+        <div className="flex flex-row justify-between items-center w-full 2xl:w-3/4 text-light">
           <div className="flex flex-row items-center">
             <MapPinIcon className="w-4 mr-2" />
             <p>
@@ -86,19 +86,15 @@ export default function Header() {
             : " bg-primary/80 dark:bg-primaryDark lg:bg-transparent lg:dark:bg-primaryDark border-b-2 border-b-primary lg:text-dark dark:text-light")
         }
       >
-        <Navbar
-          fluid
+        <nav
           className={
-            "w-full 2xl:w-3/4 text-lg px-3" +
+            "w-full flex flex-row justify-between 2xl:w-3/4 text-lg p-4" +
             (scrollY > 50
               ? " bg-primary/80 dark:bg-primary"
               : " bg-primary/80 dark:bg-primaryDark lg:bg-transparent lg:dark:bg-primaryDark")
           }
         >
-          <Navbar.Brand
-            href="https://flowbite-react.com"
-            className="hidden lg:block"
-          >
+          <Link href="https://flowbite-react.com" className="hidden lg:block">
             <Image
               src={basePath + "/images/logo.png"}
               width={100}
@@ -106,7 +102,7 @@ export default function Header() {
               className="mr-3 h-6 sm:h-9"
               alt="Flowbite React Logo"
             />
-          </Navbar.Brand>
+          </Link>
           <div className="hidden lg:block">
             <Popover>
               {({ open }) => (
@@ -192,30 +188,98 @@ export default function Header() {
             <div className="border-l-2 h-8" />
             <ThemeToggle />
             {isLogin ? (
-              <Dropdown
-                arrowIcon={false}
-                inline
-                label={
-                  <Avatar
+              <Menu as="div" className="relative flex text-left">
+                <Menu.Button>
+                  <Image
+                    className="rounded-full w-7 p-0"
+                    width={100}
+                    height={100}
                     alt="User settings"
-                    img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                    rounded
+                    src={basePath + "/images/user.jpg"}
                   />
-                }
-              >
-                <Dropdown.Header>
-                  <span className="block text-sm">Bonnie Green</span>
+                </Menu.Button>
+
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute right-0 top-10 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-primaryDark backdrop-blur shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <div className="py-1">
+                      {/* <span className="block text-sm">Bonnie Green</span>
                   <span className="block truncate text-sm font-medium">
                     name@flowbite.com
-                  </span>
-                </Dropdown.Header>
-                <Dropdown.Item>Profile</Dropdown.Item>
-                <Dropdown.Item>Daftar Transaksi</Dropdown.Item>
-                <Dropdown.Item>Messages</Dropdown.Item>
-                <Dropdown.Item>Settings</Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item>Sign out</Dropdown.Item>
-              </Dropdown>
+                  </span> */}
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href="#"
+                            className={cn(
+                              active
+                                ? "bg-light text-primary dark:bg-primaryDark dark:text-info"
+                                : "text-dark dark:text-light",
+                              "block px-4 py-2 text-sm"
+                            )}
+                          >
+                            Profile
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href="#"
+                            className={cn(
+                              active
+                                ? "bg-light text-primary dark:bg-primaryDark dark:text-info"
+                                : "text-dark dark:text-light",
+                              "block px-4 py-2 text-sm"
+                            )}
+                          >
+                            Daftar Transaksi
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href="#"
+                            className={cn(
+                              active
+                                ? "bg-light text-primary dark:bg-primaryDark dark:text-info"
+                                : "text-dark dark:text-light",
+                              "block px-4 py-2 text-sm"
+                            )}
+                          >
+                            Messages
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <form method="POST" action="#">
+                        <Menu.Item>
+                          {({ active }) => (
+                            <button
+                              type="submit"
+                              className={cn(
+                                active
+                                  ? "bg-light text-primary dark:bg-primaryDark dark:text-info"
+                                  : "text-dark dark:text-light",
+                                "block w-full px-4 py-2 text-left text-sm"
+                              )}
+                            >
+                              Sign out
+                            </button>
+                          )}
+                        </Menu.Item>
+                      </form>
+                    </div>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
             ) : (
               <>
                 <Link href="#" className="hover:text-info">
@@ -331,7 +395,7 @@ export default function Header() {
               </Dialog.Panel>
             </div>
           </Dialog>
-        </Navbar>
+        </nav>
         <div className="w-full flex flex-row lg:hidden items-center mb-2 px-3">
           <MapPinIcon className="w-4 mr-2" />
           <p>
