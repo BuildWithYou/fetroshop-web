@@ -3,7 +3,7 @@ import React from "react";
 
 interface ModalComponent {
   title: string;
-  body: string;
+  children: React.ReactNode;
   open: boolean;
   subtitle?: string;
   onClose: () => void;
@@ -11,7 +11,7 @@ interface ModalComponent {
 
 const Modal: React.FC<ModalComponent> = ({
   title,
-  body,
+  children,
   open,
   onClose,
   subtitle,
@@ -37,7 +37,7 @@ const Modal: React.FC<ModalComponent> = ({
                   <XMarkIcon height={"20px"} width={"20px"} />
                 </button>
               </div>
-              <div>{body}</div>
+              <div>{children}</div>
             </div>
           </div>
         </div>
