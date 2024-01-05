@@ -30,6 +30,16 @@ const config: Config = {
         infoDark: '#1e3a8a',
         light: '#f8fafc',
         dark: '#020617',
+        background: {
+          danger: "#FFF4F2",
+          success: '#F6F9F8',
+          info: "#F0F3FF",
+        },
+        borderColor: {
+          danger: "#EEB3B0",
+          success: "#B8DBCA",
+          info: "#B1C5F6",
+        }
       }
     },
   },

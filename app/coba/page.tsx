@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Input from "../components/global/Input";
 import { EyeDropperIcon, EyeIcon, EyeSlashIcon } from "@heroicons/react/16/solid";
 import Button from "../components/global/Button";
+import Alert from "../components/global/Alert";
 
 const Coba = () => {
   const [value, setValue] = useState("");
@@ -15,22 +16,9 @@ const Coba = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between px-3 pt-28 2xl:p-28">
       Page
-      <Input
-        name="password"
-        type={showPassword ? "text" : "password"}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        endIcon={
-          <div onClick={onShowPassword}>
-            {showPassword ? (
-              <EyeSlashIcon width={20} height={20} />
-            ) : (
-              <EyeIcon width={20} height={20} />
-            )}
-          </div>
-        }
-      />
-      <Button onClick={() => console.log(value)}>Send</Button>
+      <Alert open={true} title="test" variant="success">
+        Test Message
+      </Alert>
     </main>
   );
 };

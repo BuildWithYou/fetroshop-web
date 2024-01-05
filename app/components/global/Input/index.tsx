@@ -10,7 +10,16 @@ interface InputProps {
   name: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  type?: string;
+  type?:
+    | "text"
+    | "password"
+    | "email"
+    | "number"
+    | "tel"
+    | "url"
+    | "search"
+    | "date";
+  helperText?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -24,6 +33,7 @@ const Input: React.FC<InputProps> = ({
   onChange,
   value,
   type = "text",
+  helperText,
   ...props
 }) => {
   return (
@@ -36,12 +46,10 @@ const Input: React.FC<InputProps> = ({
           placeholder={placeholder}
           type={type}
           className={`border ${
-            !error && "border-gray-300"
+            !error ? "border-gray-300" : "border-danger ring-inset ring-danger"
           } p-2 w-full rounded-md focus:outline-none focus:border-primary focus:ring-0 ${
-            startIcon && "pl-8"
-          } ${endIcon && "pr-8"} ${
-            error && "border-danger ring-inset ring-danger"
-          }`}
+            startIcon ? "pl-8" : ""
+          } ${endIcon ? "pr-8" : ""}`}
           disabled={disabled}
           readOnly={readOnly}
           name={name}
@@ -52,7 +60,7 @@ const Input: React.FC<InputProps> = ({
         {endIcon && <div className="absolute top-2.5 right-2">{endIcon}</div>}
       </div>
       {error && (
-        <div className="text-sm text-danger font-medium pl-1">Error</div>
+        <div className="text-sm text-danger font-medium pl-1">{helperText}</div>
       )}
     </div>
   );
