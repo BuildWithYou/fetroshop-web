@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "",
-  // output: "export",
+  basePath: "/fetroshop-web",
+  output: "export",
 };
 
 module.exports = nextConfig;
