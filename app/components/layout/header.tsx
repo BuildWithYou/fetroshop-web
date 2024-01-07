@@ -176,7 +176,7 @@ export default function Header() {
             </Button>
           </div>
           <div className="hidden lg:flex justify-between items-center lg:w-1/3">
-            <Link href="#" className="hover:text-info">
+            <Link href="/brands" className="hover:text-info">
               Brand
             </Link>
             <Link href="/promo" className="hover:text-info">
