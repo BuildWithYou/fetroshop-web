@@ -11,8 +11,8 @@ type CardPromoProps = {
 const CardPromo: React.FC<CardPromoProps> = ({ link, image, title }) => {
   return (
     <Link href={link} target="_blank">
-      <Card size="sm" image={image} >
-        {title}
+      <Card size="sm" image={image}>
+        <p className="text-md text-gray-500">{title}</p>
       </Card>
     </Link>
   );

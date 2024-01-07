@@ -179,7 +179,7 @@ export default function Header() {
             <Link href="#" className="hover:text-info">
               Brand
             </Link>
-            <Link href="#" className="hover:text-info">
+            <Link href="/promo" className="hover:text-info">
               Promo
             </Link>
             <Link href="#" className="hover:text-info">
