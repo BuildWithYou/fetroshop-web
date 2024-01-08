@@ -15,7 +15,6 @@ function Button({
   size,
   pill,
   justify,
-  onClick,
   ...props
 }: ButtonProps) {
   return (
@@ -24,7 +23,6 @@ function Button({
       className={cn(
         buttonVariants({ variant, size, pill, justify, className })
       )}
-      onClick={onClick}
     >
       {children}
     </button>
