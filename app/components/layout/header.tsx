@@ -11,12 +11,13 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Fragment, useEffect, useState } from "react";
 import { basePath } from "../../../next.config";
 import ThemeToggle from "./themeToggle";
 import Button from "../global/Button";
 import cn from "@/app/utils/cn";
+import { ArrowLeftIcon } from "@heroicons/react/20/solid";
 
 const solutions = [
   {
@@ -40,6 +41,8 @@ export default function Header() {
   const [scrollY, setScrollY] = useState(0);
   const [isLogin, setIsLogin] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,21 +91,29 @@ export default function Header() {
       >
         <nav
           className={
-            "w-full flex flex-row justify-between 2xl:w-3/4 text-lg p-4" +
+            "w-full flex flex-row justify-between gap-2 2xl:w-3/4 text-lg p-4" +
             (scrollY > 50
               ? " bg-primary/80 dark:bg-primary"
               : " bg-primary/80 dark:bg-primaryDark lg:bg-transparent lg:dark:bg-primaryDark")
           }
         >
-          <Link href="https://flowbite-react.com" className="hidden lg:block">
+          <Link href="/" className="hidden lg:block">
             <Image
               src={basePath + "/images/logo.png"}
               width={100}
               height={100}
               className="mr-3 h-6 sm:h-9"
-              alt="Flowbite React Logo"
+              alt="Fetroshop Logo"
             />
           </Link>
+          <Button
+            size="xs"
+            variant="inlineLight"
+            className={pathname == "/" ? "hidden" : "lg:hidden"}
+            onClick={() => router.back()}
+          >
+            <ArrowLeftIcon className="w-6 font-semibold text-md" />
+          </Button>
           <div className="hidden lg:block">
             <Popover>
               {({ open }) => (
@@ -166,7 +177,7 @@ export default function Header() {
               )}
             </Popover>
           </div>
-          <div className="w-3/4 md:w-4/5 lg:w-1/3 2xl:w-1/3 flex rounded-md">
+          <div className="w-auto md:w-4/5 lg:w-1/3 2xl:w-1/3 flex rounded-md">
             <input
               placeholder="Cari Produk"
               className="w-full rounded-l-md border-2 border-primary border-r-0 px-3"
@@ -282,10 +293,10 @@ export default function Header() {
               </Menu>
             ) : (
               <>
-                <Link href="#" className="hover:text-info">
+                <Link href="/register" className="hover:text-info">
                   Daftar
                 </Link>
-                <Link href="#" className="hover:text-info">
+                <Link href="/login" className="hover:text-info">
                   Masuk
                 </Link>
               </>
@@ -335,8 +346,23 @@ export default function Header() {
                     </>
                   ) : (
                     <div className="grid grid-cols-2 gap-4">
-                      <Button variant="secondary">Daftar</Button>
-                      <Button>Masuk</Button>
+                      <Button
+                        variant="secondary"
+                        onClick={() => {
+                          setMenuOpen(!menuOpen);
+                          router.push("/register");
+                        }}
+                      >
+                        Daftar
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          setMenuOpen(!menuOpen);
+                          router.push("/login");
+                        }}
+                      >
+                        Masuk
+                      </Button>
                     </div>
                   )}
                 </div>
@@ -396,12 +422,14 @@ export default function Header() {
             </div>
           </Dialog>
         </nav>
-        <div className="w-full flex flex-row lg:hidden items-center mb-2 px-3">
-          <MapPinIcon className="w-4 mr-2" />
-          <p>
-            <span>Blitar</span>. Masuk untuk ubah lokasi.
-          </p>
-        </div>
+        {scrollY < 50 && (
+          <div className="w-full flex flex-row lg:hidden items-center mb-2 px-3">
+            <MapPinIcon className="w-4 mr-2" />
+            <p>
+              <span>Blitar</span>. Masuk untuk ubah lokasi.
+            </p>
+          </div>
+        )}
       </div>
     </>
   );

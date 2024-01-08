@@ -18,8 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={(inter.className, " bg-light dark:bg-dark")}>
-        <div className="fixed z-50 w-full">
+      <body
+        className={
+          (inter.className, " bg-light dark:bg-dark w-screen h-screen")
+        }
+      >
+        <div className="fixed z-50 top-0 w-full">
           <Headers />
         </div>
         {children}

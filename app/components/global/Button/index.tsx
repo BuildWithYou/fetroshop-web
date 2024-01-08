@@ -65,21 +65,21 @@ const buttonVariants = cva("flex items-center", {
       outlineDark:
         "text-dark bg-transparent border-2 border-dark hover:border-gray-700 enabled:hover:text-gray-800 enabled:hover:bg-transparent focus:ring-4 focus:ring-dark dark:bg-transparent dark:text-dark dark:border-dark dark:enabled:hover:bg-transparent dark:enabled:hover:border-gray-800 dark:focus:ring-dark",
       inlinePrimary:
-        "text-primary bg-transparent enabled:hover:text-info enabled:hover:bg-transparent focus:ring-4 focus:ring-primary dark:bg-transparent dark:text-primary dark:enabled:hover:bg-transparent dark:focus:ring-primary",
+        "text-primary bg-transparent enabled:hover:text-info enabled:hover:bg-transparent focus:ring-1 focus:ring-primary dark:bg-transparent dark:text-primary dark:enabled:hover:bg-transparent dark:focus:ring-primary",
       inlineSecondary:
-        "text-secondary bg-transparent enabled:hover:text-info enabled:hover:bg-transparent focus:ring-4 focus:ring-secondary dark:bg-transparent dark:text-secondary dark:enabled:hover:bg-transparent dark:focus:ring-secondary",
+        "text-secondary bg-transparent enabled:hover:text-info enabled:hover:bg-transparent focus:ring-1 focus:ring-secondary dark:bg-transparent dark:text-secondary dark:enabled:hover:bg-transparent dark:focus:ring-secondary",
       inlineSuccess:
-        "text-success bg-transparent enabled:hover:text-info enabled:hover:bg-transparent focus:ring-4 focus:ring-success dark:bg-transparent dark:text-success dark:enabled:hover:bg-transparent dark:focus:ring-success",
+        "text-success bg-transparent enabled:hover:text-info enabled:hover:bg-transparent focus:ring-1 focus:ring-success dark:bg-transparent dark:text-success dark:enabled:hover:bg-transparent dark:focus:ring-success",
       inlineDanger:
-        "text-danger bg-transparent enabled:hover:text-info enabled:hover:bg-transparent focus:ring-4 focus:ring-danger dark:bg-transparent dark:text-danger dark:enabled:hover:bg-transparent dark:focus:ring-danger",
+        "text-danger bg-transparent enabled:hover:text-info enabled:hover:bg-transparent focus:ring-1 focus:ring-danger dark:bg-transparent dark:text-danger dark:enabled:hover:bg-transparent dark:focus:ring-danger",
       inlineWarning:
-        "text-warning bg-transparent enabled:hover:text-info enabled:hover:bg-transparent focus:ring-4 focus:ring-warning dark:bg-transparent dark:text-warning dark:enabled:hover:bg-transparent dark:focus:ring-warning",
+        "text-warning bg-transparent enabled:hover:text-info enabled:hover:bg-transparent focus:ring-1 focus:ring-warning dark:bg-transparent dark:text-warning dark:enabled:hover:bg-transparent dark:focus:ring-warning",
       inlineInfo:
-        "text-info bg-transparent enabled:hover:text-info enabled:hover:bg-transparent focus:ring-4 focus:ring-info dark:bg-transparent dark:text-info dark:enabled:hover:bg-transparent dark:focus:ring-info",
+        "text-info bg-transparent enabled:hover:text-info enabled:hover:bg-transparent focus:ring-1 focus:ring-info dark:bg-transparent dark:text-info dark:enabled:hover:bg-transparent dark:focus:ring-info",
       inlineLight:
-        "text-light bg-transparent enabled:hover:text-gray-300 enabled:hover:bg-transparent focus:ring-4 focus:ring-light dark:bg-transparent dark:text-light dark:enabled:hover:bg-transparent dark:focus:ring-gray-300",
+        "text-light bg-transparent enabled:hover:text-gray-300 enabled:hover:bg-transparent focus:ring-1 focus:ring-light dark:bg-transparent dark:text-light dark:enabled:hover:bg-transparent dark:focus:ring-gray-300",
       inlineDark:
-        "text-dark bg-transparent enabled:hover:text-dark enabled:hover:bg-transparent focus:ring-4 focus:ring-dark dark:bg-transparent dark:text-dark dark:enabled:hover:bg-transparent dark:focus:ring-dark",
+        "text-dark bg-transparent enabled:hover:text-dark enabled:hover:bg-transparent focus:ring-1 focus:ring-dark dark:bg-transparent dark:text-dark dark:enabled:hover:bg-transparent dark:focus:ring-dark",
     },
     size: {
       xs: "text-xs px-2 py-1",
