@@ -20,13 +20,16 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={
-          (inter.className, " bg-light dark:bg-dark w-screen h-screen")
+          (inter.className,
+          " bg-light dark:bg-dark max-w-screen w-full h-screen")
         }
       >
         <div className="fixed z-50 top-0 w-full">
           <Headers />
         </div>
-        {children}
+        <main className="flex min-h-screen flex-col items-center justify-between px-10 pt-28 2xl:p-28">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

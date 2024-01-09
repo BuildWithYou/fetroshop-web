@@ -46,7 +46,7 @@ const Input: React.FC<InputProps> = ({
           placeholder={placeholder}
           type={type}
           className={`border ${
-            !error ? "border-gray-300" : "border-danger ring-inset ring-danger"
+            !error ? "border-slate-200 focus:border-blue-400" : "border-danger ring-inset ring-danger"
           } p-2 w-full rounded-md focus:outline-none focus:border-primary focus:ring-0 ${
             startIcon ? "pl-8" : ""
           } ${endIcon ? "pr-8" : ""}`}

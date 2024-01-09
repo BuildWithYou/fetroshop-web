@@ -29,10 +29,10 @@ const Card: React.FC<CardProps> = ({ size, image, children }) => {
 const cardVariants = cva("shadow-sm rounded-md border border-grey-400", {
   variants: {
     size: {
-      sm: "w-full max-w-sm",
-      md: "w-full max-w-md",
-      lg: "w-full max-w-lg",
-      full: "w-full",
+      sm: "w-full max-w-sm min-h-60 h-full",
+      md: "w-full max-w-md min-h-60 h-full",
+      lg: "w-full max-w-lg min-h-60 h-full",
+      full: "w-full min-h-60 h-full",
     },
   },
 });
