@@ -1,4 +1,4 @@
-import Card from "@/app/components/global/Card";
+import Card from "@/src/components/global/Card";
 import Link from "next/link";
 import React from "react";
 

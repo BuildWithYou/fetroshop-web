@@ -1,11 +1,10 @@
 import Image from "next/image";
-import SliderCategory from "./components/global/SliderCategory";
-import ProuctHighLight from "./components/global/ProductHighlight";
-import SliderBanner from "./components/global/SliderBanner";
-import { basePath } from "../next.config";
+import SliderCategory from "../components/global/SliderCategory";
+import ProuctHighLight from "../components/global/ProductHighlight";
+import SliderBanner from "../components/global/SliderBanner";
+import { basePath } from "../../next.config";
 import "swiper/css";
 import Link from "next/link";
-import Button from "./components/global/Button";
 
 const product = [
   {
@@ -89,7 +88,7 @@ const product = [
 
 export default function Home() {
   return (
-    <div>
+    <>
       <div className="max-w-7xl w-full items-center justify-between hidden lg:block">
         <SliderBanner rows={2} />
       </div>
@@ -115,6 +114,6 @@ export default function Home() {
 
       <ProuctHighLight title="Produk Rekomendasi" product={product} />
       <ProuctHighLight title="Produk Terbaru" product={product} />
-    </div>
+    </>
   );
 }

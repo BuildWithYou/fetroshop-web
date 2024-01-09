@@ -1,11 +1,19 @@
 "use client";
 
+import { changeTheme } from "@/src/redux/slicers/themeSlice";
 import { Switch } from "@headlessui/react";
 import { SunIcon, MoonIcon } from "@heroicons/react/16/solid";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 export default function ThemeToggle() {
   const [darkMode, setDarkMode] = useState(false);
+  const dispatch = useDispatch();
+
+  const changeThemeLoc = (type: boolean) => {
+    dispatch(changeTheme(type));
+    setDarkMode(type);
+  };
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
@@ -14,7 +22,8 @@ export default function ThemeToggle() {
       (!("theme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     )
-      setDarkMode(true);
+      changeThemeLoc(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -29,7 +38,7 @@ export default function ThemeToggle() {
   return (
     <Switch
       checked={darkMode}
-      onChange={setDarkMode}
+      onChange={() => changeThemeLoc(!darkMode)}
       className={`${
         darkMode ? "bg-black" : "bg-light"
       } relative inline-flex h-6 w-11 items-center rounded-full ring-2`}

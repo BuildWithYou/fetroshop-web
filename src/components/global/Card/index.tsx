@@ -1,4 +1,4 @@
-import cn from "@/app/utils/cn";
+import cn from "@/src/utils/cn";
 import { cva } from "class-variance-authority";
 import React from "react";
 import Image from "next/image";

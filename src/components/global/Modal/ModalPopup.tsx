@@ -1,11 +1,8 @@
 import { XMarkIcon } from "@heroicons/react/16/solid";
-import {
-  CheckCircleIcon,
-  XCircleIcon,
-} from "@heroicons/react/24/outline";
+import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { cva } from "class-variance-authority";
-import cn from "@/app/utils/cn";
+import cn from "@/src/utils/cn";
 
 interface ModalErrorProps {
   open: boolean;

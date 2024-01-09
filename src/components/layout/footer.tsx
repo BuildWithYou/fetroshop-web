@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <>
       <hr className="mt-6 border-primary sm:mx-auto dark:border-primaryDark lg:mt-8" />
-      <div className="w-full flex flex-col sm:flex-row justify-center bg-slate-500/30 backdrop-blur h-72 pt-6 lg:pt-8 px-4">
+      <div className="w-full flex flex-col sm:flex-row justify-center bg-slate-200 dark:bg-slate-950 backdrop-blur h-72 pt-6 lg:pt-8 px-4">
         <div className="w-full lg:w-3/4 xl:w-2/3 flex flex-col sm:flex-row justify-between">
           <div className="w-full xl:w-2/3 mb-10 md:mb-0">
             <span className="text-sm text-dark dark:text-primary font-semibold sm:text-center">

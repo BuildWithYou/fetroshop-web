@@ -16,8 +16,9 @@ import { Fragment, useEffect, useState } from "react";
 import { basePath } from "../../../next.config";
 import ThemeToggle from "./themeToggle";
 import Button from "../global/Button";
-import cn from "@/app/utils/cn";
+import cn from "@/src/utils/cn";
 import { ArrowLeftIcon } from "@heroicons/react/20/solid";
+import { useSelector } from "react-redux";
 
 const solutions = [
   {
@@ -38,6 +39,7 @@ const solutions = [
 ];
 
 export default function Header() {
+  const darkMode = useSelector((state: any) => state.theme.darkMode);
   const [scrollY, setScrollY] = useState(0);
   const [isLogin, setIsLogin] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -109,7 +111,9 @@ export default function Header() {
           <Button
             size="xs"
             variant="inlineLight"
-            className={pathname == "/" ? "hidden" : "lg:hidden"}
+            className={
+              pathname == "/" ? "hidden focus:ring-0" : "lg:hidden focus:ring-0"
+            }
             onClick={() => router.back()}
           >
             <ArrowLeftIcon className="w-6 font-semibold text-md" />
@@ -371,13 +375,37 @@ export default function Header() {
                   <h2 className="mb-2 font-semibold">Menu Utama</h2>
                   <ul className="w-full">
                     <li className="mt-2">
-                      <Link href="#">Semua Kategori</Link>
+                      <Button
+                        variant={darkMode ? "inlineLight" : "inlineDark"}
+                        onClick={() => {
+                          setMenuOpen(!menuOpen);
+                          router.push("/");
+                        }}
+                      >
+                        Semua Kategori
+                      </Button>
                     </li>
                     <li className="mt-2">
-                      <Link href="#">Promo</Link>
+                      <Button
+                        variant={darkMode ? "inlineLight" : "inlineDark"}
+                        onClick={() => {
+                          setMenuOpen(!menuOpen);
+                          router.push("/promo");
+                        }}
+                      >
+                        Promo
+                      </Button>
                     </li>
                     <li className="mt-2">
-                      <Link href="#">Brand</Link>
+                      <Button
+                        variant={darkMode ? "inlineLight" : "inlineDark"}
+                        onClick={() => {
+                          setMenuOpen(!menuOpen);
+                          router.push("/brands");
+                        }}
+                      >
+                        Brand
+                      </Button>
                     </li>
                   </ul>
                 </div>
@@ -386,13 +414,38 @@ export default function Header() {
                   <h2 className="mb-2 font-semibold">Layanan Pelanggan</h2>
                   <ul className="w-full">
                     <li className="mt-2">
-                      <Link href="#">Pertanyaan Umum</Link>
+                      <Button
+                        variant={darkMode ? "inlineLight" : "inlineDark"}
+                        onClick={() => {
+                          setMenuOpen(!menuOpen);
+                          router.push("/");
+                        }}
+                      >
+                        Pertanyaan Umum
+                      </Button>
                     </li>
                     <li className="mt-2">
-                      <Link href="#">Cara Belanja</Link>
+                      <Button
+                        variant={darkMode ? "inlineLight" : "inlineDark"}
+                        onClick={() => {
+                          setMenuOpen(!menuOpen);
+                          router.push("/");
+                        }}
+                      >
+                        Cara Belanja
+                      </Button>
                     </li>
                     <li className="mt-2">
-                      <Link href="#">Gratis Ongkir</Link>
+                      <Button
+                        variant={darkMode ? "inlineLight" : "inlineDark"}
+                        onClick={() => {
+                          setMenuOpen(!menuOpen);
+                          router.push("/");
+                          console.log(darkMode);
+                        }}
+                      >
+                        Gratis Ongkir
+                      </Button>
                     </li>
                   </ul>
                 </div>
@@ -401,13 +454,37 @@ export default function Header() {
                   <h2 className="mb-2 font-semibold">Jelajahi Fetroshop</h2>
                   <ul className="w-full">
                     <li className="mt-2">
-                      <Link href="#">Tentang Fetroshop</Link>
+                      <Button
+                        variant={darkMode ? "inlineLight" : "inlineDark"}
+                        onClick={() => {
+                          setMenuOpen(!menuOpen);
+                          router.push("/");
+                        }}
+                      >
+                        Tentang Fetroshop
+                      </Button>
                     </li>
                     <li className="mt-2">
-                      <Link href="#">Syarat & Ketentuan</Link>
+                      <Button
+                        variant={darkMode ? "inlineLight" : "inlineDark"}
+                        onClick={() => {
+                          setMenuOpen(!menuOpen);
+                          router.push("/");
+                        }}
+                      >
+                        Syarat & Ketentuan
+                      </Button>
                     </li>
                     <li className="mt-2">
-                      <Link href="#">Kebijakan Privasi</Link>
+                      <Button
+                        variant={darkMode ? "inlineLight" : "inlineDark"}
+                        onClick={() => {
+                          setMenuOpen(!menuOpen);
+                          router.push("/");
+                        }}
+                      >
+                        Kebijakan Privasi
+                      </Button>
                     </li>
                   </ul>
                 </div>
