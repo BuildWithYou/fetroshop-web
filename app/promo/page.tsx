@@ -1,5 +1,6 @@
 import React from "react";
 import ListPromo from "./components/ListPromo";
+import Breadcrumb from "../components/global/BreadCrumb";
 
 const promo = [
   {
@@ -40,7 +41,7 @@ const promo = [
   },
   {
     id: 7,
-    title: "Hemat belanja mingguan potongan 80%",
+    title: "Hemat belanja mingguan potongan 80% ksadkadjadasjdkaj",
     image: "/images/banner/banner3.png",
     link: "https://alfagift.id/download",
   },
@@ -53,13 +54,16 @@ const promo = [
 ];
 
 const page = () => {
+  const paths = [
+    { name: "Home", url: "/", active: true },
+    { name: "Promo", url: "/promo", active: false },
+  ];
   return (
-    <main className="flex flex-col items-center min-h-screen px-3 pt-28 2xl:p-28">
-      <div className="w-fill px-5">
-        <p className="text-2xl my-6">Semua Promo</p>
-        <ListPromo promo={promo} />
-      </div>
-    </main>
+    <div className="w-fill mt-3">
+      <Breadcrumb paths={paths} />
+      <p className="text-2xl my-6">Semua Promo</p>
+      <ListPromo promo={promo} />
+    </div>
   );
 };
 

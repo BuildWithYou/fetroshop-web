@@ -89,7 +89,7 @@ const product = [
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between px-3 pt-28 2xl:p-28">
+    <div>
       <div className="max-w-7xl w-full items-center justify-between hidden lg:block">
         <SliderBanner rows={2} />
       </div>
@@ -115,6 +115,6 @@ export default function Home() {
 
       <ProuctHighLight title="Produk Rekomendasi" product={product} />
       <ProuctHighLight title="Produk Terbaru" product={product} />
-    </main>
+    </div>
   );
 }
