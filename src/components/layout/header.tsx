@@ -1,11 +1,11 @@
 "use client";
 
-import { Dialog, Menu, Popover, Transition } from "@headlessui/react";
+import { Menu, Popover, Transition } from "@headlessui/react";
 import {
+  ChevronRightIcon,
   DevicePhoneMobileIcon,
   MapPinIcon,
   Squares2X2Icon,
-  XMarkIcon,
 } from "@heroicons/react/16/solid";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
@@ -19,22 +19,68 @@ import Button from "../global/Button";
 import cn from "@/src/utils/cn";
 import { ArrowLeftIcon } from "@heroicons/react/20/solid";
 import { useSelector } from "react-redux";
+import PopUpMobile from "../global/PopUpMobile";
 
 const solutions = [
   {
-    name: "Insights",
+    name: "Kebutuhan Dapur",
     description: "Measure actions your users take",
     href: "##",
+    icon: "/images/logo.png",
   },
   {
-    name: "Automations",
+    name: "Kebutuhan Ibu & Anak",
     description: "Create your own targeted content",
     href: "##",
+    icon: "/images/logo.png",
   },
   {
-    name: "Reports",
+    name: "Kebutuhan Rumah",
     description: "Keep track of your growth",
     href: "##",
+    icon: "/images/logo.png",
+  },
+  {
+    name: "Makanan",
+    description: "Keep track of your growth",
+    href: "##",
+    icon: "/images/logo.png",
+  },
+  {
+    name: "Minuman",
+    description: "Keep track of your growth",
+    href: "##",
+    icon: "/images/logo.png",
+  },
+  {
+    name: "Produk Segar & Beku",
+    description: "Keep track of your growth",
+    href: "##",
+    icon: "/images/logo.png",
+  },
+  {
+    name: "Personal Care",
+    description: "Keep track of your growth",
+    href: "##",
+    icon: "/images/logo.png",
+  },
+  {
+    name: "Kebutuhan Kesehatan",
+    description: "Keep track of your growth",
+    href: "##",
+    icon: "/images/logo.png",
+  },
+  {
+    name: "Lifestyle",
+    description: "Keep track of your growth",
+    href: "##",
+    icon: "/images/logo.png",
+  },
+  {
+    name: "Pet Foods",
+    description: "Keep track of your growth",
+    href: "##",
+    icon: "/images/logo.png",
   },
 ];
 
@@ -43,6 +89,7 @@ export default function Header() {
   const [scrollY, setScrollY] = useState(0);
   const [isLogin, setIsLogin] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [categoryOpen, setCategoryOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -139,40 +186,34 @@ export default function Header() {
                     leaveFrom="opacity-100 translate-y-0"
                     leaveTo="opacity-0 translate-y-1"
                   >
-                    <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-screen max-w-sm -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-3xl">
-                      <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5">
-                        <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
+                    <Popover.Panel className="absolute left-1/3 z-10 mt-3 w-screen max-w-sm -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-3xl">
+                      <div className="overflow-hidden rounded-lg shadow-lg ring-1 bg-light dark:bg-secondaryDark text-dark dark:text-light ring-black/5">
+                        <div className="p-4">
+                          <span className="text-lg font-semibold">
+                            Kategori
+                          </span>
+                        </div>
+                        <div className="relative grid gap-8 p-7 lg:grid-cols-2">
                           {solutions.map((item) => (
-                            <a
+                            <Link
                               key={item.name}
                               href={item.href}
-                              className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500/50"
+                              className="-m-3 flex items-center rounded-lg  transition duration-150 ease-in-out hover:bg-slate-300 dark:hover:bg-slate-500"
                             >
-                              <div className="ml-4">
-                                <p className="text-sm font-medium text-gray-900">
+                              <div className="w-full flex flex-row justify-between ml-4">
+                                <p className="flex flex-row gap-2 text-md font-medium">
+                                  <Image
+                                    src={basePath + item.icon}
+                                    alt={item.name}
+                                    width={20}
+                                    height={20}
+                                  />
                                   {item.name}
                                 </p>
-                                <p className="text-sm text-gray-500">
-                                  {item.description}
-                                </p>
+                                <ChevronRightIcon className="w-4" />
                               </div>
-                            </a>
+                            </Link>
                           ))}
-                        </div>
-                        <div className="bg-gray-50 p-4">
-                          <a
-                            href="##"
-                            className="flow-root rounded-md px-2 py-2 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500/50"
-                          >
-                            <span className="flex items-center">
-                              <span className="text-sm font-medium text-gray-900">
-                                Documentation
-                              </span>
-                            </span>
-                            <span className="block text-sm text-gray-500">
-                              Start integrating products and tools
-                            </span>
-                          </a>
                         </div>
                       </div>
                     </Popover.Panel>
@@ -184,7 +225,7 @@ export default function Header() {
           <div className="w-auto md:w-4/5 lg:w-1/3 2xl:w-1/3 flex rounded-md">
             <input
               placeholder="Cari Produk"
-              className="w-full rounded-l-md border-2 border-primary border-r-0 px-3"
+              className="w-full rounded-l-md border-1 border-primary border-r-0 dark:bg-secondaryDark focus:ring-0 px-3"
             />
             <Button className="rounded-l-none">
               <MagnifyingGlassIcon className="w-6" />
@@ -223,12 +264,15 @@ export default function Header() {
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95"
                 >
-                  <Menu.Items className="absolute right-0 top-10 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-primaryDark backdrop-blur shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <Menu.Items className="absolute right-0 2xl:-right-20 top-10 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-primaryDark backdrop-blur shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div className="py-1">
-                      {/* <span className="block text-sm">Bonnie Green</span>
-                  <span className="block truncate text-sm font-medium">
-                    name@flowbite.com
-                  </span> */}
+                      <div className="flex flex-col px-4 py-2">
+                        <span className="text-sm">Bonnie Green</span>
+                        <span className="truncate text-sm font-medium">
+                          name@fetroshop.com
+                        </span>
+                      </div>
+                      <hr className="border-primary dark:border-primary" />
                       <Menu.Item>
                         {({ active }) => (
                           <Link
@@ -312,192 +356,208 @@ export default function Header() {
           <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>
             <Squares2X2Icon className="w-6 mr-2" />
           </button>
-          <Dialog
+          <PopUpMobile
+            title="Menu"
             open={menuOpen}
             onClose={() => setMenuOpen(!menuOpen)}
-            className="relative z-50"
           >
-            <div className="fixed inset-0 bg-black" aria-hidden="true" />
-            <div className="fixed inset-0 flex w-screen h-screen items-center justify-center">
-              <Dialog.Panel className="w-screen h-screen rounded text-dark dark:text-light bg-white dark:bg-dark backdrop-blur py-5 px-6">
-                <XMarkIcon
-                  className="w-7 absolute top-5 right-6 cursor-pointer"
-                  onClick={() => setMenuOpen(!menuOpen)}
-                />
-                <Dialog.Title className="font-semibold">Menu</Dialog.Title>
-                <hr className=" border-primary dark:border-primaryDark mt-5" />
-                <div className="flex flex-col my-5">
-                  {isLogin ? (
-                    <>
-                      <h2 className="mb-2 font-semibold">Akun Saya</h2>
-                      <ul className="w-full">
-                        <li className="mt-2">
-                          <Link href="#">Profile</Link>
-                        </li>
-                        <li className="mt-2">
-                          <Link href="#">Daftar Transaksi</Link>
-                        </li>
-                        <li className="mt-2">
-                          <Link href="#">Messages</Link>
-                        </li>
-                        <li className="mt-2">
-                          <Link href="#">Settings</Link>
-                        </li>
-                        <li className="mt-2">
-                          <Link href="#">Log Out</Link>
-                        </li>
-                      </ul>
-                    </>
-                  ) : (
-                    <div className="grid grid-cols-2 gap-4">
-                      <Button
-                        variant="secondary"
-                        onClick={() => {
-                          setMenuOpen(!menuOpen);
-                          router.push("/register");
-                        }}
-                      >
-                        Daftar
-                      </Button>
-                      <Button
-                        onClick={() => {
-                          setMenuOpen(!menuOpen);
-                          router.push("/login");
-                        }}
-                      >
-                        Masuk
-                      </Button>
-                    </div>
-                  )}
-                </div>
-                <hr className=" border-primary dark:border-primaryDark" />
-                <div className="flex flex-col my-5">
-                  <h2 className="mb-2 font-semibold">Menu Utama</h2>
+            <div className="flex flex-col my-5">
+              {isLogin ? (
+                <>
+                  <h2 className="mb-2 font-semibold">Akun Saya</h2>
                   <ul className="w-full">
                     <li className="mt-2">
-                      <Button
-                        variant={darkMode ? "inlineLight" : "inlineDark"}
-                        onClick={() => {
-                          setMenuOpen(!menuOpen);
-                          router.push("/");
-                        }}
-                      >
-                        Semua Kategori
-                      </Button>
+                      <Link href="#">Profile</Link>
                     </li>
                     <li className="mt-2">
-                      <Button
-                        variant={darkMode ? "inlineLight" : "inlineDark"}
-                        onClick={() => {
-                          setMenuOpen(!menuOpen);
-                          router.push("/promo");
-                        }}
-                      >
-                        Promo
-                      </Button>
+                      <Link href="#">Daftar Transaksi</Link>
                     </li>
                     <li className="mt-2">
-                      <Button
-                        variant={darkMode ? "inlineLight" : "inlineDark"}
-                        onClick={() => {
-                          setMenuOpen(!menuOpen);
-                          router.push("/brands");
-                        }}
-                      >
-                        Brand
-                      </Button>
+                      <Link href="#">Messages</Link>
+                    </li>
+                    <li className="mt-2">
+                      <Link href="#">Settings</Link>
+                    </li>
+                    <li className="mt-2">
+                      <Link href="#">Log Out</Link>
                     </li>
                   </ul>
+                </>
+              ) : (
+                <div className="grid grid-cols-2 gap-4">
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      setMenuOpen(!menuOpen);
+                      router.push("/register");
+                    }}
+                  >
+                    Daftar
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      setMenuOpen(!menuOpen);
+                      router.push("/login");
+                    }}
+                  >
+                    Masuk
+                  </Button>
                 </div>
-                <hr className=" border-primary dark:border-primaryDark" />
-                <div className="flex flex-col my-5">
-                  <h2 className="mb-2 font-semibold">Layanan Pelanggan</h2>
-                  <ul className="w-full">
-                    <li className="mt-2">
-                      <Button
-                        variant={darkMode ? "inlineLight" : "inlineDark"}
-                        onClick={() => {
-                          setMenuOpen(!menuOpen);
-                          router.push("/");
-                        }}
-                      >
-                        Pertanyaan Umum
-                      </Button>
-                    </li>
-                    <li className="mt-2">
-                      <Button
-                        variant={darkMode ? "inlineLight" : "inlineDark"}
-                        onClick={() => {
-                          setMenuOpen(!menuOpen);
-                          router.push("/");
-                        }}
-                      >
-                        Cara Belanja
-                      </Button>
-                    </li>
-                    <li className="mt-2">
-                      <Button
-                        variant={darkMode ? "inlineLight" : "inlineDark"}
-                        onClick={() => {
-                          setMenuOpen(!menuOpen);
-                          router.push("/");
-                          console.log(darkMode);
-                        }}
-                      >
-                        Gratis Ongkir
-                      </Button>
-                    </li>
-                  </ul>
-                </div>
-                <hr className=" border-primary dark:border-primaryDark" />
-                <div className="flex flex-col my-5">
-                  <h2 className="mb-2 font-semibold">Jelajahi Fetroshop</h2>
-                  <ul className="w-full">
-                    <li className="mt-2">
-                      <Button
-                        variant={darkMode ? "inlineLight" : "inlineDark"}
-                        onClick={() => {
-                          setMenuOpen(!menuOpen);
-                          router.push("/");
-                        }}
-                      >
-                        Tentang Fetroshop
-                      </Button>
-                    </li>
-                    <li className="mt-2">
-                      <Button
-                        variant={darkMode ? "inlineLight" : "inlineDark"}
-                        onClick={() => {
-                          setMenuOpen(!menuOpen);
-                          router.push("/");
-                        }}
-                      >
-                        Syarat & Ketentuan
-                      </Button>
-                    </li>
-                    <li className="mt-2">
-                      <Button
-                        variant={darkMode ? "inlineLight" : "inlineDark"}
-                        onClick={() => {
-                          setMenuOpen(!menuOpen);
-                          router.push("/");
-                        }}
-                      >
-                        Kebijakan Privasi
-                      </Button>
-                    </li>
-                  </ul>
-                </div>
-                <hr className=" border-primary dark:border-primaryDark" />
-                <div className="flex flex-col my-5">
-                  <h2 className="mb-2 font-semibold">Theme</h2>
-                  <div className="cursor-pointer mt-2">
-                    <ThemeToggle />
-                  </div>
-                </div>
-              </Dialog.Panel>
+              )}
             </div>
-          </Dialog>
+            <hr className=" border-primary dark:border-primaryDark" />
+            <div className="flex flex-col my-5">
+              <h2 className="mb-2 font-semibold">Menu Utama</h2>
+              <ul className="w-full">
+                <li className="mt-2">
+                  <Button
+                    variant={darkMode ? "inlineLight" : "inlineDark"}
+                    onClick={() => setCategoryOpen(!categoryOpen)}
+                  >
+                    Semua Kategori
+                  </Button>
+                </li>
+                <PopUpMobile
+                  title="Semua Kategori"
+                  open={categoryOpen}
+                  onClose={() => setCategoryOpen(!categoryOpen)}
+                >
+                  <ul className="w-full grid gap-4 py-6">
+                    {solutions.map((item) => (
+                      <li key={item.name}>
+                        <Button
+                          className="gap-4 pl-0 rounded-lg transition duration-150 ease-in-out focus:ring-0"
+                          variant={darkMode ? "inlineLight" : "inlineDark"}
+                          onClick={() => {
+                            setCategoryOpen(!categoryOpen);
+                            setMenuOpen(!menuOpen);
+                            router.push(item.href);
+                          }}
+                          size="lg"
+                        >
+                          <Image
+                            src={basePath + item.icon}
+                            alt={item.name}
+                            width={20}
+                            height={20}
+                          />
+                          {item.name}
+                        </Button>
+                      </li>
+                    ))}
+                  </ul>
+                </PopUpMobile>
+                <li className="mt-2">
+                  <Button
+                    variant={darkMode ? "inlineLight" : "inlineDark"}
+                    onClick={() => {
+                      setMenuOpen(!menuOpen);
+                      router.push("/promo");
+                    }}
+                  >
+                    Promo
+                  </Button>
+                </li>
+                <li className="mt-2">
+                  <Button
+                    variant={darkMode ? "inlineLight" : "inlineDark"}
+                    onClick={() => {
+                      setMenuOpen(!menuOpen);
+                      router.push("/brands");
+                    }}
+                  >
+                    Brand
+                  </Button>
+                </li>
+              </ul>
+            </div>
+            <hr className=" border-primary dark:border-primaryDark" />
+            <div className="flex flex-col my-5">
+              <h2 className="mb-2 font-semibold">Layanan Pelanggan</h2>
+              <ul className="w-full">
+                <li className="mt-2">
+                  <Button
+                    variant={darkMode ? "inlineLight" : "inlineDark"}
+                    onClick={() => {
+                      setMenuOpen(!menuOpen);
+                      router.push("/");
+                    }}
+                  >
+                    Pertanyaan Umum
+                  </Button>
+                </li>
+                <li className="mt-2">
+                  <Button
+                    variant={darkMode ? "inlineLight" : "inlineDark"}
+                    onClick={() => {
+                      setMenuOpen(!menuOpen);
+                      router.push("/");
+                    }}
+                  >
+                    Cara Belanja
+                  </Button>
+                </li>
+                <li className="mt-2">
+                  <Button
+                    variant={darkMode ? "inlineLight" : "inlineDark"}
+                    onClick={() => {
+                      setMenuOpen(!menuOpen);
+                      router.push("/");
+                      console.log(darkMode);
+                    }}
+                  >
+                    Gratis Ongkir
+                  </Button>
+                </li>
+              </ul>
+            </div>
+            <hr className=" border-primary dark:border-primaryDark" />
+            <div className="flex flex-col my-5">
+              <h2 className="mb-2 font-semibold">Jelajahi Fetroshop</h2>
+              <ul className="w-full">
+                <li className="mt-2">
+                  <Button
+                    variant={darkMode ? "inlineLight" : "inlineDark"}
+                    onClick={() => {
+                      setMenuOpen(!menuOpen);
+                      router.push("/");
+                    }}
+                  >
+                    Tentang Fetroshop
+                  </Button>
+                </li>
+                <li className="mt-2">
+                  <Button
+                    variant={darkMode ? "inlineLight" : "inlineDark"}
+                    onClick={() => {
+                      setMenuOpen(!menuOpen);
+                      router.push("/");
+                    }}
+                  >
+                    Syarat & Ketentuan
+                  </Button>
+                </li>
+                <li className="mt-2">
+                  <Button
+                    variant={darkMode ? "inlineLight" : "inlineDark"}
+                    onClick={() => {
+                      setMenuOpen(!menuOpen);
+                      router.push("/");
+                    }}
+                  >
+                    Kebijakan Privasi
+                  </Button>
+                </li>
+              </ul>
+            </div>
+            <hr className=" border-primary dark:border-primaryDark" />
+            <div className="flex flex-col my-5">
+              <h2 className="mb-2 font-semibold">Theme</h2>
+              <div className="cursor-pointer mt-2">
+                <ThemeToggle />
+              </div>
+            </div>
+          </PopUpMobile>
         </nav>
         {scrollY < 50 && (
           <div className="w-full flex flex-row lg:hidden items-center mb-2 px-3">

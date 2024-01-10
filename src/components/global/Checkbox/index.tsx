@@ -21,7 +21,7 @@ const Checkbox: React.FC<InputProps> = ({
           type="checkbox"
           className={
             className +
-            ` w-4 h-4 rounded focus:outline-none focus:border-primary focus:ring-0 border cursor-pointer ${
+            ` w-4 h-4 rounded focus:outline-none focus:border-primary focus:ring-0 border cursor-pointer dark:bg-secondary/50 ${
               error ? "border-danger ring-inset ring-danger" : "border-gray-300"
             }`
           }

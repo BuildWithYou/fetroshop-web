@@ -31,7 +31,7 @@ export default function ProuctHighLight(data: dataType) {
 
   return (
     <div className="max-w-7xl w-full font-bold flex flex-col mt-2">
-      <p className="text-2xl my-2">{data.title}</p>
+      <p className="text-2xl text-dark dark:text-light my-2">{data.title}</p>
       <div className="mb-4 grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-6 lg:max-w-7xl lg:w-full lg:mb-0 lg:text-left">
         {product.map((item, index) => (
           <ProductCard key={"prod-" + index} data={item} />
