@@ -4,7 +4,7 @@ import Image from "next/image";
 import { basePath } from "../../../../next.config";
 
 interface ProductCardProps {
-  data: { image: string; name: string; promo: string; price: string };
+  data: { image: string; name: string; promo: number; price: number };
 }
 
 export default function ProductCard({ data }: ProductCardProps) {
@@ -25,9 +25,11 @@ export default function ProductCard({ data }: ProductCardProps) {
         </h2>
         <div>
           <p className="text-sm text-secondary hover:text-light font-bold line-through">
-            {data.promo}
+            {data.promo.toLocaleString()}
           </p>
-          <p className="text-md text-danger font-bold">{data.price}</p>
+          <p className="text-md text-danger font-bold">
+            {data.price.toLocaleString()}
+          </p>
         </div>
       </Link>
       <Button className="w-full z-10 mt-2">Beli</Button>
