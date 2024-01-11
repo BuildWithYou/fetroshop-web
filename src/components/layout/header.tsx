@@ -123,7 +123,7 @@ export default function Header() {
             <Link href="" className="mx-4 hover:text-info">
               Jelajah Fetroshop
             </Link>
-            <Link href="" className="flex flex-row ml-4 hover:text-info">
+            <Link href="/download" className="flex flex-row ml-4 hover:text-info">
               <DevicePhoneMobileIcon className="w-4 mr-1" />
               Download Fetroshop App
             </Link>

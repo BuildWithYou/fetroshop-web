@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Breadcrumb from "../../components/global/BreadCrumb";
-import ContentBrand from "./ContentBrand";
-import SideBar from "./SideBar";
-import ModalSearchBrand from "./ModalSearchBrand";
+import ContentBrand from "./components/ContentBrand";
+import SideBar from "./components/SideBar";
+import ModalSearchBrand from "./components/ModalSearchBrand";
 import { dataBrands } from "./dataBrands";
 
 const BrandsPage: React.FC = () => {
