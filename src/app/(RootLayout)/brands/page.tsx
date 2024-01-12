@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Breadcrumb from "../../components/global/BreadCrumb";
+import Breadcrumb from "../../../components/global/BreadCrumb";
 import ContentBrand from "./components/ContentBrand";
 import SideBar from "./components/SideBar";
 import ModalSearchBrand from "./components/ModalSearchBrand";

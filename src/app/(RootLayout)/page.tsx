@@ -1,8 +1,8 @@
 import Image from "next/image";
-import SliderCategory from "../components/global/SliderCategory";
-import ProuctHighLight from "../components/global/ProductHighlight";
-import SliderBanner from "../components/global/SliderBanner";
-import { basePath } from "../../next.config";
+import SliderCategory from "../../components/global/SliderCategory";
+import ProuctHighLight from "../../components/global/ProductHighlight";
+import SliderBanner from "../../components/global/SliderBanner";
+import { basePath } from "../../../next.config";
 import "swiper/css";
 import Link from "next/link";
 
