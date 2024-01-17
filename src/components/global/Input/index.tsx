@@ -37,7 +37,7 @@ const Input: React.FC<InputProps> = ({
   ...props
 }) => {
   return (
-    <div className="mb-4">
+    <div>
       <div className="relative">
         {startIcon && (
           <div className="absolute top-2.5 left-2">{startIcon}</div>

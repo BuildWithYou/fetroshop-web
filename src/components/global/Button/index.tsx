@@ -15,13 +15,14 @@ function Button({
   size,
   pill,
   justify,
+  width,
   ...props
 }: ButtonProps) {
   return (
     <button
       {...props}
       className={cn(
-        buttonVariants({ variant, size, pill, justify, className })
+        buttonVariants({ variant, size, pill, justify, width, className })
       )}
     >
       {children}
@@ -99,12 +100,17 @@ const buttonVariants = cva("flex items-center", {
       evently: "justify-evently",
       between: "justify-between",
     },
+    width: {
+     full: "w-full",
+     auto: "w-auto"
+    }
   },
   defaultVariants: {
     variant: "primary",
     size: "md",
     pill: "md",
     justify: "center",
+    width: "auto"
   },
 });
 
