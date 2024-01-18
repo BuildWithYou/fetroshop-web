@@ -13,12 +13,12 @@ const AccountDashboard = () => {
     { label: "Email", value: "muhmitro10@gmail.com" },
   ];
   return (
-    <div className="mx-auto">
-      <div className="grid grid-cols-4 gap-8">
-        <div>
+    <div className="mx-auto w-fill px-5">
+      <div className="grid md:grid-cols-4 md:grid-rows-1 sm:grid-cols-1 sm:grid-rows-2 gap-8">
+        <div className="w-full">
           <SidebarDashboard />
         </div>
-        <div className="border border-gray-300 min-h-[450px] rounded-lg col-span-3 p-10 bg-white">
+        <div className="border border-gray-300 min-h-[450px] rounded-lg md:col-span-3 p-10 bg-white">
           <TabProfile />
         </div>
       </div>

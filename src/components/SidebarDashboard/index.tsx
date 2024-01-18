@@ -12,7 +12,7 @@ const SidebarDashboard = () => {
     { name: "Pesanan Batal", link: "/" },
   ];
   return (
-    <div className="h-auto max-w-sm border border-gray-200 rounded-md bg-white">
+    <div className="h-auto w-full border border-gray-300 rounded-md bg-white">
       <ProfileSection name="Mitro Ubaidillah" />
       <PointSection total={10} />
       <TransactionSection transactions={transactions} />
@@ -28,7 +28,7 @@ interface SectionProps {
 
 interface ProfileSectionProps {
   image?: string;
-  name: string;
+  name: string; 
 }
 
 interface typeTransaction {
@@ -47,12 +47,12 @@ interface PointProps {
 const Section: React.FC<SectionProps> = ({ children, border = false }) => {
   return (
     <div
-      className={`flex gap-3 items-center p-5 ${
+      className={`w-full flex gap-3 items-center p-5 ${
         border ? "border-b border-grey-200" : ""
       }`}
     >
       {children}
-    </div>
+     </div>
   );
 };
 

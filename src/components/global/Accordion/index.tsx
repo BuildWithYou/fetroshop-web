@@ -21,7 +21,7 @@ const Accordion: React.FC<AccordionProps> = ({
   };
 
   return (
-    <div className="max-w-md w-full mx-auto">
+    <div className="w-full mx-auto">
       <div
         className="flex items-center w-full justify-between cursor-pointer"
         onClick={toggleAccordion}
