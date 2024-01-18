@@ -1,10 +1,13 @@
 "use client";
 import Button from "@/src/components/global/Button";
 import Input from "@/src/components/global/Input";
+import InputImage from "@/src/components/global/Input/InputImage";
 import Select from "@/src/components/global/Select";
 import { formatDate } from "@/src/helpers/date";
 import { PencilIcon } from "@heroicons/react/24/outline";
-import React, { useState } from "react";
+import Image from "next/image";
+import React, { useRef, useState } from "react";
+import defaultImage from "@/public/images/profile-default.jpg";
 
 interface TabProfileProps {}
 
@@ -15,12 +18,14 @@ type UserData = {
   married: string;
   phoneNumber: string;
   email: string;
+  image: string | null;
 };
 
 type UserProperty = keyof UserData;
 
 const TabProfile: React.FC<TabProfileProps> = ({}) => {
   const [isEdit, setIsEdit] = useState(false);
+  const [imageSource, setImageSource] = useState<FileList | null>(null);
   const [formData, setFormData] = useState<Record<UserProperty, string>>({
     name: "Mitro Ubadillah",
     dob: "1998-04-12",
@@ -28,7 +33,24 @@ const TabProfile: React.FC<TabProfileProps> = ({}) => {
     married: "Belum Menikah",
     phoneNumber: "081332725004",
     email: "example@gmail.com",
+    image: "",
   });
+
+  const fileInput = useRef<HTMLInputElement>(null);
+
+  const convertImage = (files: FileList | null) => {
+    if (files) {
+      const render = new FileReader();
+      render.readAsDataURL(files[0]);
+      render.onload = () => {
+        const result: string | null = render.result as string;
+        setFormData((prev) => ({
+          ...prev,
+          image: result,
+        }));
+      };
+    }
+  };
 
   const onEdit = () => {
     setIsEdit((prev) => !prev);
@@ -39,9 +61,26 @@ const TabProfile: React.FC<TabProfileProps> = ({}) => {
   };
 
   return (
-    <div className="flex md:flex-row lg:flex-row flex-col gap-7 justify-center">
-      <div className="p-3 max-h-40 mx-auto">
-        <div className="h-32 w-32 bg-gray-800 rounded-full"></div>
+    <div className="flex md:flex-row lg:flex-row flex-col md:gap-5 gap-10 justify-center">
+      <div className={`mx-auto max-h-64 flex flex-col items-center w-fill min-w-32`}>
+        <div className="relative p-0 m-0">
+          <Image
+            src={formData.image || defaultImage}
+            alt="profile-image"
+            width={200}
+            height={200}
+            className="rounded-full w-32 h-32 md:h-24 md:w-24 object-cover"
+          />
+        </div>
+
+        {isEdit && (
+          <div className="p-0 mt-5">
+            <InputImage
+              inputRef={fileInput}
+              onChange={(e) => convertImage(e.target.files)}
+            />
+          </div>
+        )}
       </div>
       <form>
         <div className="mb-3">
@@ -139,7 +178,14 @@ const TabProfile: React.FC<TabProfileProps> = ({}) => {
         </div>
         <div className="flex gap-4">
           {!isEdit ? (
-              <Button type="button" width="full" variant="primary" onClick={onEdit}>Ubah</Button>
+            <Button
+              type="button"
+              width="full"
+              variant="primary"
+              onClick={onEdit}
+            >
+              Ubah
+            </Button>
           ) : (
             <>
               <Button
@@ -150,7 +196,9 @@ const TabProfile: React.FC<TabProfileProps> = ({}) => {
               >
                 Batal
               </Button>
-              <Button width="full" variant="primary" onClick={onEdit}>Simpan</Button>
+              <Button width="full" variant="primary" onClick={onEdit}>
+                Simpan
+              </Button>
             </>
           )}
         </div>

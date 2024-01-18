@@ -18,7 +18,7 @@ const AccountDashboard = () => {
         <div className="w-full">
           <SidebarDashboard />
         </div>
-        <div className="border border-gray-300 min-h-[450px] rounded-lg md:col-span-3 p-10 bg-white">
+        <div className="border border-gray-300 min-h-[450px] rounded-lg md:col-span-3 p-10 md:p-5 bg-white">
           <TabProfile />
         </div>
       </div>
