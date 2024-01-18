@@ -1,5 +1,4 @@
 import SidebarDashboard from "@/src/components/SidebarDashboard";
-import Input from "@/src/components/global/Input";
 import React from "react";
 import TabProfile from "./components/TabProfile";
 
