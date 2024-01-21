@@ -4,14 +4,14 @@ export interface ProfileState {
     isEdit: boolean;
     image: string;
     name: string;
-    dob: string;
+    dob: string | null | undefined;
     gender: string;
     phoneNumber: string;
     email: string;
 }
 
 const initialState: ProfileState = {
-    isEdit: true,
+    isEdit: false,
     image: "",
     name: "",
     dob: "",

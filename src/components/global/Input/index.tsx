@@ -1,40 +1,22 @@
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
+import { FieldError } from "react-hook-form";
 
-interface InputProps {
-  placeholder?: string;
-  readOnly?: boolean;
-  disabled?: boolean;
-  error?: boolean;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  error?: FieldError | boolean;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
-  name: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  type?:
-    | "text"
-    | "password"
-    | "email"
-    | "number"
-    | "tel"
-    | "url"
-    | "search"
-    | "date";
   helperText?: string;
 }
 
 const Input: React.FC<InputProps> = ({
-  placeholder,
   disabled = false,
   readOnly = false,
   startIcon,
   endIcon,
   error = false,
-  name,
-  onChange,
-  value,
   type = "text",
   helperText,
-  ...props
+  ...rest
 }) => {
   return (
     <div>
@@ -43,7 +25,6 @@ const Input: React.FC<InputProps> = ({
           <div className="absolute top-2.5 left-2">{startIcon}</div>
         )}
         <input
-          placeholder={placeholder}
           type={type}
           className={`border ${
             !error
@@ -54,15 +35,12 @@ const Input: React.FC<InputProps> = ({
           } ${endIcon ? "pr-8" : ""}`}
           disabled={disabled}
           readOnly={readOnly}
-          name={name}
-          value={value}
-          onChange={onChange}
-          {...props}
+          {...rest}
         />
         {endIcon && <div className="absolute top-2.5 right-2">{endIcon}</div>}
       </div>
       {error && (
-        <div className="text-sm text-danger font-medium pl-1">{helperText}</div>
+        <div className="text-sm text-danger font-normal pl-1">{helperText}</div>
       )}
     </div>
   );

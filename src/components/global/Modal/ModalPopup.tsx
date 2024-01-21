@@ -24,8 +24,8 @@ const ModalPopup: React.FC<ModalErrorProps> = ({
       {open && (
         <div className="fixed inset-0 overflow-y-auto z-50">
           <div className="flex items-center justify-center min-h-screen">
-            <div className="fixed inset-0 bg-black opacity-50"></div>
-            <div className="relative z-50 bg-white rounded-sm">
+            <div className="fixed inset-0 bg-black opacity-50" onClick={onClose}></div>
+            <div className="relative z-50 bg-white rounded-lg">
               <div className={cn(modalVariants({ variant }))}>
                 <div className="flex justify-end">
                   <button
@@ -44,7 +44,7 @@ const ModalPopup: React.FC<ModalErrorProps> = ({
                   )}
                 </div>
               </div>
-              <div className="flex items-center flex-col mb-5 gap-3">
+              <div className="flex items-center flex-col mb-5 gap-3 p-5">
                 <div className="text-center">
                   <div className="text-3xl">{title}</div>
                   <div className="text-md">{message}</div>
@@ -64,7 +64,7 @@ const ModalPopup: React.FC<ModalErrorProps> = ({
   );
 };
 
-const buttonVariants = cva("flex items-center px-10 py-2 rounded-md", {
+const buttonVariants = cva("flex items-center px-10 py-2 rounded-lg", {
   variants: {
     variant: {
       error:
@@ -78,7 +78,7 @@ const buttonVariants = cva("flex items-center px-10 py-2 rounded-md", {
   },
 });
 
-const modalVariants = cva("mb-4 rounded-t-sm px-5 pt-2 pb-5 min-w-[350px]", {
+const modalVariants = cva("mb-4 rounded-t-lg px-5 pt-2 pb-5 min-w-[350px]", {
   variants: {
     variant: {
       error: "bg-danger",

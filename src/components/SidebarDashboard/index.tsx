@@ -1,7 +1,10 @@
+"use client";
 import { UserCircleIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Accordion from "../global/Accordion";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { ProfileState } from "@/src/redux/slicers/profileSlice";
 
 const SidebarDashboard = () => {
   const transactions = [
@@ -11,9 +14,14 @@ const SidebarDashboard = () => {
     { name: "Pesanan Selesai", link: "/" },
     { name: "Pesanan Batal", link: "/" },
   ];
+
+  const dataProfile = useSelector(
+    (state: { profile: ProfileState }) => state?.profile
+  );
+
   return (
     <div className="h-auto w-full border border-gray-300 rounded-md bg-white">
-      <ProfileSection name="Mitro Ubaidillah" />
+      <ProfileSection image={dataProfile?.image} name="Mitro Ubaidillah" />
       <PointSection total={10} />
       <TransactionSection transactions={transactions} />
       <AccountSection transactions={[{ name: "Akun Saya", link: "/" }]} />
@@ -28,7 +36,7 @@ interface SectionProps {
 
 interface ProfileSectionProps {
   image?: string;
-  name: string; 
+  name: string;
 }
 
 interface typeTransaction {
@@ -52,7 +60,7 @@ const Section: React.FC<SectionProps> = ({ children, border = false }) => {
       }`}
     >
       {children}
-     </div>
+    </div>
   );
 };
 

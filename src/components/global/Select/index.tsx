@@ -1,32 +1,41 @@
-import React, {SelectHTMLAttributes} from "react";
+import React, { SelectHTMLAttributes } from "react";
+import { FieldError } from "react-hook-form";
 
 type Option = {
-  value: string;
+  value?: string | undefined;
   label: string;
-}
-
-type SelectProps = {
-  options: Option[];
-  value: string;
-  onChange: (value: string) => void;
-  readOnly?: boolean;
 };
 
-const Select: React.FC<SelectProps> = ({ options, value, onChange, readOnly = false, ...rest }) => {
+interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+  options: Option[];
+  readOnly?: boolean;
+  error?: FieldError | boolean;
+  helperText?: string;
+}
+
+const Select: React.FC<SelectProps> = ({
+  options,
+  readOnly = false,
+  error,
+  helperText,
+  ...rest
+}) => {
   return (
     <div>
       <select
         className="border border-slate-200 focus:border-blue-400 p-2 w-full rounded-md focus:outline-none focus:border-primary focus:ring-0 dark:bg-secondary/50"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
         disabled={readOnly}
+        {...rest}
       >
         {options.map((item, index) => (
-          <option value={item.value} key={index}>
+          <option value={item?.value} key={index}>
             {item.label}
           </option>
         ))}
       </select>
+      {error && (
+        <div className="text-sm text-danger font-normal pl-1">{helperText}</div>
+      )}
     </div>
   );
 };
