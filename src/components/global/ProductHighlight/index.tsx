@@ -9,8 +9,8 @@ interface productType {
   id: number;
   image: string;
   name: string;
-  promo: string;
-  price: string;
+  promo: number;
+  price: number;
 }
 
 interface dataType {

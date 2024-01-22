@@ -238,7 +238,7 @@ export default function Header() {
             <Link href="/promo" className="hover:text-info">
               Promo
             </Link>
-            <Link href="#" className="hover:text-info">
+            <Link href="/cart" className="hover:text-info">
               <ShoppingCartIcon className="w-6" />
             </Link>
             <div className="border-l-2 h-8" />
@@ -350,11 +350,14 @@ export default function Header() {
               </>
             )}
           </div>
-          <button className="lg:hidden">
-            <ShoppingCartIcon className="w-6 mr-2" />
-          </button>
-          <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>
-            <Squares2X2Icon className="w-6 mr-2" />
+          <Link href="/cart" className="lg:hidden flex justify-center mr-2">
+            <ShoppingCartIcon className="w-6" />
+          </Link>
+          <button
+            className="lg:hidden mr-2"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <Squares2X2Icon className="w-6" />
           </button>
           <PopUpMobile
             title="Menu"
