@@ -25,7 +25,7 @@ const SidebarDashboard = () => {
   );
 
   return (
-    <div className="h-auto w-full border border-gray-300 rounded-md bg-white">
+    <div className="h-auto w-full border border-gray-300 rounded-md bg-white dark:bg-dark text-dark dark:text-white">
       <ProfileSection image={dataProfile?.image} name="Mitro Ubaidillah" />
       <PointSection total={10} />
       <TransactionSection transactions={transactions} />
