@@ -18,7 +18,7 @@ const ContentBrand: React.FC<ContentBrandProps> = ({category, dataBrands}) => {
             <p className="rounded-full border-[1px] border-slate-300 px-2 text-xl">{category}</p>
         </div>
         {filteredBrands.length > 0 ? 
-            <ul className="md:grid md:grid-cols-4 sm:grid-cols-2 gap-4 w-full">
+            <ul className="grid md:grid-cols-4 grid-cols-2 gap-4 w-full">
                 {filteredBrands.map((brand) => <li key={brand} className='cursor-pointer text-blue-600'>{brand}</li>)}
             </ul>
             : 

@@ -54,7 +54,7 @@ const BrandsPage: React.FC = () => {
   };
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center mt-12">
       <div className="w-full 2xl:w-3/4 mx-2 2xl:mx-0">
         <Breadcrumb paths={paths} />
         <h2 className="text-2xl mt-10">Semua Brand</h2>

@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const DownloadPage = () => {
   return (
-    <div>
+    <div className='w-full'>
       <div className="linear-gradient-download-banner h-fit lg:h-[70vh] w-full px-4 lg:px-16 m-0 flex flex-col lg:flex-row items-center lg:items-start justify-between relative">
         <Image
           src={basePath + "/images/downloadPage/app-download.png"}

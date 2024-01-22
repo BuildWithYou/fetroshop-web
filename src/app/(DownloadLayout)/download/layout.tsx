@@ -19,7 +19,7 @@ export default function DownloadLayout({
   return (
     <html lang="en">
       <body className={(inter.className, "bg-light dark:bg-dark")}>
-        <div className="w-full md:w-[500px] lg:w-full 2xl:w-3/4 mx-auto">
+        <div className="w-full mx-auto">
           <HeaderDownload />
           <main className="flex min-h-[60vh] flex-col items-center justify-center">
             {children}
