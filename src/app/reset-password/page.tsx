@@ -9,7 +9,7 @@ const ResetPassword = () => {
         <div className="w-full">
           <SidebarDashboard />
         </div>
-        <div className="border border-gray-300 min-h-[450px] md:col-span-2 rounded-lg px-10 py-5 bg-white text-center">
+        <div className="border border-gray-300 min-h-[450px] md:col-span-2 rounded-lg px-10 py-5 bg-white dark:bg-dark text-dark dark:text-white text-center">
           <div className="flex flex-col items-center">
             <h1 className="text-2xl font-bold my-3">
               Atur Ulang Kata Sandi Kamu
