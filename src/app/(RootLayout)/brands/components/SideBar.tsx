@@ -1,6 +1,6 @@
 'use client'
 
-import styles from './styleBrands.module.css';
+import styles from './../styleBrands.module.css';
 
 interface SideBarProps {
   handleModalToggle: () => void;

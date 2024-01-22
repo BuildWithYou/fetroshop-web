@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Breadcrumb from "../../components/global/BreadCrumb";
-import ContentBrand from "./ContentBrand";
-import SideBar from "./SideBar";
-import ModalSearchBrand from "./ModalSearchBrand";
+import Breadcrumb from "../../../components/global/BreadCrumb";
+import ContentBrand from "./components/ContentBrand";
+import SideBar from "./components/SideBar";
+import ModalSearchBrand from "./components/ModalSearchBrand";
 import { dataBrands } from "./dataBrands";
 
 const BrandsPage: React.FC = () => {
@@ -54,7 +54,7 @@ const BrandsPage: React.FC = () => {
   };
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center mt-12">
       <div className="w-full 2xl:w-3/4 mx-2 2xl:mx-0">
         <Breadcrumb paths={paths} />
         <h2 className="text-2xl mt-10">Semua Brand</h2>
