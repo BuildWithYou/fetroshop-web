@@ -21,7 +21,7 @@ const Modal: React.FC<ModalComponent> = ({
       {open && (
         <div className="fixed inset-0 overflow-y-auto z-50">
           <div className="flex items-center justify-center min-h-screen">
-            <div className="fixed inset-0 bg-black opacity-50"></div>
+            <div className="fixed inset-0 bg-black opacity-50" onClick={onClose}></div>
             <div className="relative z-50 bg-white p-4 rounded-lg">
               <div className="flex justify-between items-start mb-4 gap-3">
                 <div>
