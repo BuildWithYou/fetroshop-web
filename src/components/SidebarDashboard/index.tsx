@@ -8,12 +8,17 @@ import { ProfileState } from "@/src/redux/slicers/profileSlice";
 
 const SidebarDashboard = () => {
   const transactions = [
-    { name: "Menunggu Pembayaran", link: "/" },
-    { name: "Pesanan Dalam Proses", link: "/" },
-    { name: "Pesanan Dikirim", link: "/" },
-    { name: "Pesanan Selesai", link: "/" },
-    { name: "Pesanan Batal", link: "/" },
+    { name: "Menunggu Pembayaran", link: "#" },
+    { name: "Pesanan Dalam Proses", link: "#" },
+    { name: "Pesanan Dikirim", link: "#" },
+    { name: "Pesanan Selesai", link: "#" },
+    { name: "Pesanan Batal", link: "#" },
   ];
+
+  const profiles = [
+    {name: "Akun Saya", link: "/account-dashboard"},
+    {name: "Reset Password", link: "/reset-password"},
+  ]
 
   const dataProfile = useSelector(
     (state: { profile: ProfileState }) => state?.profile
@@ -24,7 +29,7 @@ const SidebarDashboard = () => {
       <ProfileSection image={dataProfile?.image} name="Mitro Ubaidillah" />
       <PointSection total={10} />
       <TransactionSection transactions={transactions} />
-      <AccountSection transactions={[{ name: "Akun Saya", link: "/" }]} />
+      <AccountSection transactions={profiles} />
     </div>
   );
 };

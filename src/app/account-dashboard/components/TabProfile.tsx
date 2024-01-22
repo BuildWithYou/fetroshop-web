@@ -22,9 +22,7 @@ import {
 } from "@/src/redux/slicers/profileSlice";
 import ModalPopup from "@/src/components/global/Modal/ModalPopup";
 
-interface TabProfileProps {}
-
-const TabProfile: React.FC<TabProfileProps> = ({}) => {
+const TabProfile = () => {
   const dispatch = useDispatch();
 
   const defaultValue = useSelector(
@@ -317,7 +315,7 @@ type TypographyProps = {
   children: string;
 };
 
-const Typography: React.FC<TypographyProps> = ({ children }) => {
+export const Typography: React.FC<TypographyProps> = ({ children }) => {
   return <div className="text-md w-fill">{children}</div>;
 };
 
