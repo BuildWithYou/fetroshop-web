@@ -1,7 +1,7 @@
 "use client";
 
 import Input from "@/src/components/global/Input";
-import { Typography } from "../account-dashboard/components/TabProfile";
+import { Typography } from "../../(RootLayout)/account-dashboard/components/TabProfile";
 import { Controller, useForm } from "react-hook-form";
 import {
   ResetPasswordState,
@@ -15,7 +15,8 @@ import Button from "@/src/components/global/Button";
 
 const BoxResetPassword = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState<boolean>(false);
   const {
     formState: { errors },
     handleSubmit,
@@ -94,7 +95,9 @@ const BoxResetPassword = () => {
         />
       </div>
 
-      <Button type="submit" width={"full"}>Ubah Password</Button>
+      <Button type="submit" width={"full"}>
+        Ubah Password
+      </Button>
     </form>
   );
 };

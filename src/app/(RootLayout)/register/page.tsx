@@ -9,7 +9,7 @@ export default function Register() {
   const router = useRouter();
 
   return (
-    <div className="w-full sm:w-2/3 lg:w-1/2 xl:w-1/3 flex flex-col justify-between items-center bg-light dark:bg-secondaryDark rounded-md ring-1 ring-gray-300 dark:ring-primary text-dark dark:text-light p-6">
+    <div className="w-full sm:w-2/3 lg:w-1/2 xl:w-1/3 gap-4 flex flex-col justify-between items-center bg-light dark:bg-secondaryDark rounded-md ring-1 ring-gray-300 dark:ring-primary text-dark dark:text-light p-6">
       <h2 className="font-medium text-xl">Daftar</h2>
       <div className="flex flex-row items-center">
         <p>Sudah punya akun Fetroshop? </p>
