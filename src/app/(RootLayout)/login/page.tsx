@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import Button from "../../components/global/Button";
+import Button from "../../../components/global/Button";
 import { useRouter } from "next/navigation";
-import Input from "../../components/global/Input";
+import Input from "../../../components/global/Input";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
-import Checkbox from "../../components/global/Checkbox";
+import Checkbox from "../../../components/global/Checkbox";
 import { useSelector } from "react-redux";
 
 export default function Login() {

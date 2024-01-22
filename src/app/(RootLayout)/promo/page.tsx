@@ -1,6 +1,6 @@
 import React from "react";
 import ListPromo from "./components/ListPromo";
-import Breadcrumb from "../../components/global/BreadCrumb";
+import Breadcrumb from "../../../components/global/BreadCrumb";
 
 const promo = [
   {
